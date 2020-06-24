@@ -4,7 +4,7 @@ This utility is very helpful for anyone managing workstations or servers. I hope
 
 The Form was created using Sapien Powershell Studio 2012.
 
-![alt text](/Media/lwa-v0.4-main01.png "LazyWinAdmin")
+![alt text](https://github.com/MinersWin/LazyWinAdmin_GUI/blob/master/Media/lwa-v0.4-main01.png "LazyWinAdmin")
 
 ## Requirements
  * Powershell 2.0
