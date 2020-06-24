@@ -1,6 +1,8 @@
 # LazyWinAdmin-V.2
 THIS IS A RECODE!
-![Original Version](https://github.com/lazywinadmin/LazyWinAdmin_GUI)
+
+<a href="https://github.com/lazywinadmin/LazyWinAdmin_GUI">github.com/lazywinadmin/LazyWinAdmin_GUI</a>
+
 LazyWinAdmin is a project released in 2012, a PowerShell Script that generates a GUI/WinForms loaded with tons of functions.
 This utility is very helpful for anyone managing workstations or servers. I hope this help you in your day to day tasks.
 
@@ -19,4 +21,4 @@ The Original Form was created using Sapien Powershell Studio 2012.
 
 ## Contributions
 You are welcome to contribute. Refer to the License for details.
-* ![Original Creator](https://github.com/lazywinadmin/)
+* <a href="https://github.com/lazywinadmin/">github.com/lazywinadmin/</a>
