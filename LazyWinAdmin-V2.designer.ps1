@@ -42,15 +42,9 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelComputerName = $null
 function InitializeComponent
 {
+$resources = . (Join-Path $PSScriptRoot 'LazyWinAdmin-V2.resources.ps1')
 $MenuStrip1 = (New-Object -TypeName System.Windows.Forms.MenuStrip)
 $AdminArsenalToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$LocalHostToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$ScriptsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$AboutToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
-$LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
-$ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
-$ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
 $ActiveDirectoryQuerySearchDialogToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $ActiveDirectoryQueryPrintersToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $ToolStripSeparator1 = (New-Object -TypeName System.Windows.Forms.ToolStripSeparator)
@@ -66,6 +60,7 @@ $NotepadToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStrip
 $WordPadToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $SysInternalsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $GenerateAPasswordToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$LocalHostToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $CurrentInformationToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $NetstatsListeningPortsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $PowerShellGetRegisteredSnappinToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
@@ -83,6 +78,12 @@ $HostsFileOpenToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.Too
 $HostsFileGetContentToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $NetStatToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $OtherWindowsAppsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ScriptsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AboutToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
+$ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
+$ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
+$LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
 $MenuStrip1.SuspendLayout()
 $Panel1.SuspendLayout()
 $Form1.SuspendLayout()
@@ -92,7 +93,7 @@ $Form1.SuspendLayout()
 $MenuStrip1.Items.AddRange([System.Windows.Forms.ToolStripItem[]]@($AdminArsenalToolStripMenuItem,$LocalHostToolStripMenuItem,$ScriptsToolStripMenuItem,$AboutToolStripMenuItem))
 $MenuStrip1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]0))
 $MenuStrip1.Name = [System.String]'MenuStrip1'
-$MenuStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1008,[System.Int32]24))
+$MenuStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1008,[System.Int32]28))
 $MenuStrip1.TabIndex = [System.Int32]0
 $MenuStrip1.Text = [System.String]'MenuStrip1'
 #
@@ -100,26 +101,215 @@ $MenuStrip1.Text = [System.String]'MenuStrip1'
 #
 $AdminArsenalToolStripMenuItem.DropDownItems.AddRange([System.Windows.Forms.ToolStripItem[]]@($ActiveDirectoryQuerySearchDialogToolStripMenuItem,$ActiveDirectoryQueryPrintersToolStripMenuItem,$ToolStripSeparator1,$CommandPromptToolStripMenuItem,$PowerShellToolStripMenuItem,$PowerShellISEToolStripMenuItem,$ToolStripSeparator2,$RemoteDesktopConnectionToolStripMenuItem,$ShutdownGUIToolStripMenuItem,$InternetExplorerToolStripMenuItem,$TerminalAdminTsAdminToolStripMenuItem,$NotepadToolStripMenuItem,$WordPadToolStripMenuItem,$SysInternalsToolStripMenuItem,$GenerateAPasswordToolStripMenuItem))
 $AdminArsenalToolStripMenuItem.Name = [System.String]'AdminArsenalToolStripMenuItem'
-$AdminArsenalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]94,[System.Int32]20))
+$AdminArsenalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]114,[System.Int32]24))
 $AdminArsenalToolStripMenuItem.Text = [System.String]'AdminArsenal'
+#
+#ActiveDirectoryQuerySearchDialogToolStripMenuItem
+#
+$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Name = [System.String]'ActiveDirectoryQuerySearchDialogToolStripMenuItem'
+$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Text = [System.String]'Active Directory Query - Search Dialog'
+#
+#ActiveDirectoryQueryPrintersToolStripMenuItem
+#
+$ActiveDirectoryQueryPrintersToolStripMenuItem.Name = [System.String]'ActiveDirectoryQueryPrintersToolStripMenuItem'
+$ActiveDirectoryQueryPrintersToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$ActiveDirectoryQueryPrintersToolStripMenuItem.Text = [System.String]'Active Directory Query - Printers'
+#
+#ToolStripSeparator1
+#
+$ToolStripSeparator1.Name = [System.String]'ToolStripSeparator1'
+$ToolStripSeparator1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]331,[System.Int32]6))
+#
+#CommandPromptToolStripMenuItem
+#
+$CommandPromptToolStripMenuItem.Name = [System.String]'CommandPromptToolStripMenuItem'
+$CommandPromptToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$CommandPromptToolStripMenuItem.Text = [System.String]'Command Prompt'
+#
+#PowerShellToolStripMenuItem
+#
+$PowerShellToolStripMenuItem.Name = [System.String]'PowerShellToolStripMenuItem'
+$PowerShellToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$PowerShellToolStripMenuItem.Text = [System.String]'PowerShell'
+#
+#PowerShellISEToolStripMenuItem
+#
+$PowerShellISEToolStripMenuItem.Name = [System.String]'PowerShellISEToolStripMenuItem'
+$PowerShellISEToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$PowerShellISEToolStripMenuItem.Text = [System.String]'PowerShell ISE'
+#
+#ToolStripSeparator2
+#
+$ToolStripSeparator2.Name = [System.String]'ToolStripSeparator2'
+$ToolStripSeparator2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]331,[System.Int32]6))
+#
+#RemoteDesktopConnectionToolStripMenuItem
+#
+$RemoteDesktopConnectionToolStripMenuItem.Name = [System.String]'RemoteDesktopConnectionToolStripMenuItem'
+$RemoteDesktopConnectionToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$RemoteDesktopConnectionToolStripMenuItem.Text = [System.String]'Remote Desktop Connection'
+#
+#ShutdownGUIToolStripMenuItem
+#
+$ShutdownGUIToolStripMenuItem.Name = [System.String]'ShutdownGUIToolStripMenuItem'
+$ShutdownGUIToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$ShutdownGUIToolStripMenuItem.Text = [System.String]'Shutdown GUI'
+#
+#InternetExplorerToolStripMenuItem
+#
+$InternetExplorerToolStripMenuItem.Name = [System.String]'InternetExplorerToolStripMenuItem'
+$InternetExplorerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$InternetExplorerToolStripMenuItem.Text = [System.String]'Internet Explorer'
+#
+#TerminalAdminTsAdminToolStripMenuItem
+#
+$TerminalAdminTsAdminToolStripMenuItem.Name = [System.String]'TerminalAdminTsAdminToolStripMenuItem'
+$TerminalAdminTsAdminToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$TerminalAdminTsAdminToolStripMenuItem.Text = [System.String]'Terminal Admin (TsAdmin)'
+#
+#NotepadToolStripMenuItem
+#
+$NotepadToolStripMenuItem.Name = [System.String]'NotepadToolStripMenuItem'
+$NotepadToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$NotepadToolStripMenuItem.Text = [System.String]'NotePad'
+$NotepadToolStripMenuItem.add_Click($NotepadToolStripMenuItem_Click)
+#
+#WordPadToolStripMenuItem
+#
+$WordPadToolStripMenuItem.Name = [System.String]'WordPadToolStripMenuItem'
+$WordPadToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$WordPadToolStripMenuItem.Text = [System.String]'WordPad'
+#
+#SysInternalsToolStripMenuItem
+#
+$SysInternalsToolStripMenuItem.Name = [System.String]'SysInternalsToolStripMenuItem'
+$SysInternalsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$SysInternalsToolStripMenuItem.Text = [System.String]'SysInternals'
+#
+#GenerateAPasswordToolStripMenuItem
+#
+$GenerateAPasswordToolStripMenuItem.Name = [System.String]'GenerateAPasswordToolStripMenuItem'
+$GenerateAPasswordToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
+$GenerateAPasswordToolStripMenuItem.Text = [System.String]'Generate a Password'
 #
 #LocalHostToolStripMenuItem
 #
 $LocalHostToolStripMenuItem.DropDownItems.AddRange([System.Windows.Forms.ToolStripItem[]]@($CurrentInformationToolStripMenuItem,$NetstatsListeningPortsToolStripMenuItem,$PowerShellGetRegisteredSnappinToolStripMenuItem,$ToolStripSeparator3,$MMCexeToolStripMenuItem,$MMCComputerManagementToolStripMenuItem,$MMCServicesToolStripMenuItem,$ToolStripSeparator4,$SystemProperiesToolStripMenuItem,$DeviceManagerToolStripMenuItem,$TaskManagerToolStripMenuItem,$RegeditToolStripMenuItem,$SystemInformationMSinfo32exeToolStripMenuItem,$HostsFileOpenToolStripMenuItem,$HostsFileGetContentToolStripMenuItem,$NetStatToolStripMenuItem,$OtherWindowsAppsToolStripMenuItem))
 $LocalHostToolStripMenuItem.Name = [System.String]'LocalHostToolStripMenuItem'
-$LocalHostToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]72,[System.Int32]20))
+$LocalHostToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]87,[System.Int32]24))
 $LocalHostToolStripMenuItem.Text = [System.String]'LocalHost'
+#
+#CurrentInformationToolStripMenuItem
+#
+$CurrentInformationToolStripMenuItem.Name = [System.String]'CurrentInformationToolStripMenuItem'
+$CurrentInformationToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$CurrentInformationToolStripMenuItem.Text = [System.String]'Current information'
+#
+#NetstatsListeningPortsToolStripMenuItem
+#
+$NetstatsListeningPortsToolStripMenuItem.Name = [System.String]'NetstatsListeningPortsToolStripMenuItem'
+$NetstatsListeningPortsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$NetstatsListeningPortsToolStripMenuItem.Text = [System.String]'Netstats | Listening Ports'
+#
+#PowerShellGetRegisteredSnappinToolStripMenuItem
+#
+$PowerShellGetRegisteredSnappinToolStripMenuItem.Name = [System.String]'PowerShellGetRegisteredSnappinToolStripMenuItem'
+$PowerShellGetRegisteredSnappinToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$PowerShellGetRegisteredSnappinToolStripMenuItem.Text = [System.String]'PowerShell - Get Registered Snappin'
+#
+#ToolStripSeparator3
+#
+$ToolStripSeparator3.Name = [System.String]'ToolStripSeparator3'
+$ToolStripSeparator3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]317,[System.Int32]6))
+#
+#MMCexeToolStripMenuItem
+#
+$MMCexeToolStripMenuItem.Name = [System.String]'MMCexeToolStripMenuItem'
+$MMCexeToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$MMCexeToolStripMenuItem.Text = [System.String]'MMC.exe'
+#
+#MMCComputerManagementToolStripMenuItem
+#
+$MMCComputerManagementToolStripMenuItem.Name = [System.String]'MMCComputerManagementToolStripMenuItem'
+$MMCComputerManagementToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$MMCComputerManagementToolStripMenuItem.Text = [System.String]'MMC - Computer Management'
+#
+#MMCServicesToolStripMenuItem
+#
+$MMCServicesToolStripMenuItem.Name = [System.String]'MMCServicesToolStripMenuItem'
+$MMCServicesToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$MMCServicesToolStripMenuItem.Text = [System.String]'MMC - Services'
+#
+#ToolStripSeparator4
+#
+$ToolStripSeparator4.Name = [System.String]'ToolStripSeparator4'
+$ToolStripSeparator4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]317,[System.Int32]6))
+#
+#SystemProperiesToolStripMenuItem
+#
+$SystemProperiesToolStripMenuItem.Name = [System.String]'SystemProperiesToolStripMenuItem'
+$SystemProperiesToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$SystemProperiesToolStripMenuItem.Text = [System.String]'System Properties'
+#
+#DeviceManagerToolStripMenuItem
+#
+$DeviceManagerToolStripMenuItem.Name = [System.String]'DeviceManagerToolStripMenuItem'
+$DeviceManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$DeviceManagerToolStripMenuItem.Text = [System.String]'Device Manager'
+#
+#TaskManagerToolStripMenuItem
+#
+$TaskManagerToolStripMenuItem.Name = [System.String]'TaskManagerToolStripMenuItem'
+$TaskManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$TaskManagerToolStripMenuItem.Text = [System.String]'Task Manager'
+#
+#RegeditToolStripMenuItem
+#
+$RegeditToolStripMenuItem.Name = [System.String]'RegeditToolStripMenuItem'
+$RegeditToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$RegeditToolStripMenuItem.Text = [System.String]'Regedit'
+#
+#SystemInformationMSinfo32exeToolStripMenuItem
+#
+$SystemInformationMSinfo32exeToolStripMenuItem.Name = [System.String]'SystemInformationMSinfo32exeToolStripMenuItem'
+$SystemInformationMSinfo32exeToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$SystemInformationMSinfo32exeToolStripMenuItem.Text = [System.String]'System Information (MSinfo32.exe)'
+#
+#HostsFileOpenToolStripMenuItem
+#
+$HostsFileOpenToolStripMenuItem.Name = [System.String]'HostsFileOpenToolStripMenuItem'
+$HostsFileOpenToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$HostsFileOpenToolStripMenuItem.Text = [System.String]'Hosts File (Open)'
+#
+#HostsFileGetContentToolStripMenuItem
+#
+$HostsFileGetContentToolStripMenuItem.Name = [System.String]'HostsFileGetContentToolStripMenuItem'
+$HostsFileGetContentToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$HostsFileGetContentToolStripMenuItem.Text = [System.String]'Hosts File (Get-Content)'
+#
+#NetStatToolStripMenuItem
+#
+$NetStatToolStripMenuItem.Name = [System.String]'NetStatToolStripMenuItem'
+$NetStatToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$NetStatToolStripMenuItem.Text = [System.String]'NetStat'
+#
+#OtherWindowsAppsToolStripMenuItem
+#
+$OtherWindowsAppsToolStripMenuItem.Name = [System.String]'OtherWindowsAppsToolStripMenuItem'
+$OtherWindowsAppsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
+$OtherWindowsAppsToolStripMenuItem.Text = [System.String]'Other Windows Apps'
 #
 #ScriptsToolStripMenuItem
 #
 $ScriptsToolStripMenuItem.Name = [System.String]'ScriptsToolStripMenuItem'
-$ScriptsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]54,[System.Int32]20))
+$ScriptsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]24))
 $ScriptsToolStripMenuItem.Text = [System.String]'Scripts'
 #
 #AboutToolStripMenuItem
 #
 $AboutToolStripMenuItem.Name = [System.String]'AboutToolStripMenuItem'
-$AboutToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]52,[System.Int32]20))
+$AboutToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]62,[System.Int32]24))
 $AboutToolStripMenuItem.Text = [System.String]'About'
 #
 #Panel1
@@ -132,222 +322,36 @@ $Panel1.Name = [System.String]'Panel1'
 $Panel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]984,[System.Int32]50))
 $Panel1.TabIndex = [System.Int32]1
 #
-#LabelComputerName
+#ButtonCheck
 #
-$LabelComputerName.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]2,[System.Int32]2))
-$LabelComputerName.Name = [System.String]'LabelComputerName'
-$LabelComputerName.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]91,[System.Int32]17))
-$LabelComputerName.TabIndex = [System.Int32]2
-$LabelComputerName.Text = [System.String]'ComputerName'
-$LabelComputerName.UseCompatibleTextRendering = $true
-$LabelComputerName.add_Click($Label1_Click)
+$ButtonCheck.Image = ([System.Drawing.Image]$resources.'ButtonCheck.Image')
+$ButtonCheck.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
+$ButtonCheck.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]232,[System.Int32]20))
+$ButtonCheck.Name = [System.String]'ButtonCheck'
+$ButtonCheck.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]68,[System.Int32]23))
+$ButtonCheck.TabIndex = [System.Int32]4
+$ButtonCheck.Text = [System.String]'Check'
+$ButtonCheck.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$ButtonCheck.UseCompatibleTextRendering = $true
+$ButtonCheck.UseVisualStyleBackColor = $true
 #
 #ComboBoxComputerName
 #
 $ComboBoxComputerName.FormattingEnabled = $true
 $ComboBoxComputerName.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]22))
 $ComboBoxComputerName.Name = [System.String]'ComboBoxComputerName'
-$ComboBoxComputerName.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]223,[System.Int32]21))
+$ComboBoxComputerName.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]223,[System.Int32]25))
 $ComboBoxComputerName.TabIndex = [System.Int32]3
 #
-#ButtonCheck
-#
-$ButtonCheck.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]232,[System.Int32]20))
-$ButtonCheck.Name = [System.String]'ButtonCheck'
-$ButtonCheck.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]23))
-$ButtonCheck.TabIndex = [System.Int32]4
-$ButtonCheck.Text = [System.String]'Check'
-$ButtonCheck.UseCompatibleTextRendering = $true
-$ButtonCheck.UseVisualStyleBackColor = $true
-#
-#ActiveDirectoryQuerySearchDialogToolStripMenuItem
-#
-$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Name = [System.String]'ActiveDirectoryQuerySearchDialogToolStripMenuItem'
-$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Text = [System.String]'Active Directory Query - Search Dialog'
-#
-#ActiveDirectoryQueryPrintersToolStripMenuItem
-#
-$ActiveDirectoryQueryPrintersToolStripMenuItem.Name = [System.String]'ActiveDirectoryQueryPrintersToolStripMenuItem'
-$ActiveDirectoryQueryPrintersToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$ActiveDirectoryQueryPrintersToolStripMenuItem.Text = [System.String]'Active Directory Query - Printers'
-#
-#ToolStripSeparator1
-#
-$ToolStripSeparator1.Name = [System.String]'ToolStripSeparator1'
-$ToolStripSeparator1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]273,[System.Int32]6))
-#
-#CommandPromptToolStripMenuItem
-#
-$CommandPromptToolStripMenuItem.Name = [System.String]'CommandPromptToolStripMenuItem'
-$CommandPromptToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$CommandPromptToolStripMenuItem.Text = [System.String]'Command Prompt'
-#
-#PowerShellToolStripMenuItem
-#
-$PowerShellToolStripMenuItem.Name = [System.String]'PowerShellToolStripMenuItem'
-$PowerShellToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$PowerShellToolStripMenuItem.Text = [System.String]'PowerShell'
-#
-#PowerShellISEToolStripMenuItem
-#
-$PowerShellISEToolStripMenuItem.Name = [System.String]'PowerShellISEToolStripMenuItem'
-$PowerShellISEToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$PowerShellISEToolStripMenuItem.Text = [System.String]'PowerShell ISE'
-#
-#ToolStripSeparator2
-#
-$ToolStripSeparator2.Name = [System.String]'ToolStripSeparator2'
-$ToolStripSeparator2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]273,[System.Int32]6))
-#
-#RemoteDesktopConnectionToolStripMenuItem
-#
-$RemoteDesktopConnectionToolStripMenuItem.Name = [System.String]'RemoteDesktopConnectionToolStripMenuItem'
-$RemoteDesktopConnectionToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$RemoteDesktopConnectionToolStripMenuItem.Text = [System.String]'Remote Desktop Connection'
-#
-#ShutdownGUIToolStripMenuItem
-#
-$ShutdownGUIToolStripMenuItem.Name = [System.String]'ShutdownGUIToolStripMenuItem'
-$ShutdownGUIToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$ShutdownGUIToolStripMenuItem.Text = [System.String]'Shutdown GUI'
-#
-#InternetExplorerToolStripMenuItem
-#
-$InternetExplorerToolStripMenuItem.Name = [System.String]'InternetExplorerToolStripMenuItem'
-$InternetExplorerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$InternetExplorerToolStripMenuItem.Text = [System.String]'Internet Explorer'
-#
-#TerminalAdminTsAdminToolStripMenuItem
-#
-$TerminalAdminTsAdminToolStripMenuItem.Name = [System.String]'TerminalAdminTsAdminToolStripMenuItem'
-$TerminalAdminTsAdminToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$TerminalAdminTsAdminToolStripMenuItem.Text = [System.String]'Terminal Admin (TsAdmin)'
-#
-#NotepadToolStripMenuItem
-#
-$NotepadToolStripMenuItem.Name = [System.String]'NotepadToolStripMenuItem'
-$NotepadToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$NotepadToolStripMenuItem.Text = [System.String]'NotePad'
-$NotepadToolStripMenuItem.add_Click($NotepadToolStripMenuItem_Click)
-#
-#WordPadToolStripMenuItem
-#
-$WordPadToolStripMenuItem.Name = [System.String]'WordPadToolStripMenuItem'
-$WordPadToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$WordPadToolStripMenuItem.Text = [System.String]'WordPad'
-#
-#SysInternalsToolStripMenuItem
-#
-$SysInternalsToolStripMenuItem.Name = [System.String]'SysInternalsToolStripMenuItem'
-$SysInternalsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$SysInternalsToolStripMenuItem.Text = [System.String]'SysInternals'
-#
-#GenerateAPasswordToolStripMenuItem
-#
-$GenerateAPasswordToolStripMenuItem.Name = [System.String]'GenerateAPasswordToolStripMenuItem'
-$GenerateAPasswordToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]276,[System.Int32]22))
-$GenerateAPasswordToolStripMenuItem.Text = [System.String]'Generate a Password'
-#
-#CurrentInformationToolStripMenuItem
-#
-$CurrentInformationToolStripMenuItem.Name = [System.String]'CurrentInformationToolStripMenuItem'
-$CurrentInformationToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$CurrentInformationToolStripMenuItem.Text = [System.String]'Current information'
-#
-#NetstatsListeningPortsToolStripMenuItem
-#
-$NetstatsListeningPortsToolStripMenuItem.Name = [System.String]'NetstatsListeningPortsToolStripMenuItem'
-$NetstatsListeningPortsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$NetstatsListeningPortsToolStripMenuItem.Text = [System.String]'Netstats | Listening Ports'
-#
-#PowerShellGetRegisteredSnappinToolStripMenuItem
-#
-$PowerShellGetRegisteredSnappinToolStripMenuItem.Name = [System.String]'PowerShellGetRegisteredSnappinToolStripMenuItem'
-$PowerShellGetRegisteredSnappinToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$PowerShellGetRegisteredSnappinToolStripMenuItem.Text = [System.String]'PowerShell - Get Registered Snappin'
-#
-#ToolStripSeparator3
-#
-$ToolStripSeparator3.Name = [System.String]'ToolStripSeparator3'
-$ToolStripSeparator3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]262,[System.Int32]6))
-#
-#MMCexeToolStripMenuItem
-#
-$MMCexeToolStripMenuItem.Name = [System.String]'MMCexeToolStripMenuItem'
-$MMCexeToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$MMCexeToolStripMenuItem.Text = [System.String]'MMC.exe'
-#
-#MMCComputerManagementToolStripMenuItem
-#
-$MMCComputerManagementToolStripMenuItem.Name = [System.String]'MMCComputerManagementToolStripMenuItem'
-$MMCComputerManagementToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$MMCComputerManagementToolStripMenuItem.Text = [System.String]'MMC - Computer Management'
-#
-#MMCServicesToolStripMenuItem
-#
-$MMCServicesToolStripMenuItem.Name = [System.String]'MMCServicesToolStripMenuItem'
-$MMCServicesToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$MMCServicesToolStripMenuItem.Text = [System.String]'MMC - Services'
-#
-#ToolStripSeparator4
-#
-$ToolStripSeparator4.Name = [System.String]'ToolStripSeparator4'
-$ToolStripSeparator4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]262,[System.Int32]6))
-#
-#SystemProperiesToolStripMenuItem
-#
-$SystemProperiesToolStripMenuItem.Name = [System.String]'SystemProperiesToolStripMenuItem'
-$SystemProperiesToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$SystemProperiesToolStripMenuItem.Text = [System.String]'System Properties'
-#
-#DeviceManagerToolStripMenuItem
-#
-$DeviceManagerToolStripMenuItem.Name = [System.String]'DeviceManagerToolStripMenuItem'
-$DeviceManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$DeviceManagerToolStripMenuItem.Text = [System.String]'Device Manager'
-#
-#TaskManagerToolStripMenuItem
-#
-$TaskManagerToolStripMenuItem.Name = [System.String]'TaskManagerToolStripMenuItem'
-$TaskManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$TaskManagerToolStripMenuItem.Text = [System.String]'Task Manager'
-#
-#RegeditToolStripMenuItem
-#
-$RegeditToolStripMenuItem.Name = [System.String]'RegeditToolStripMenuItem'
-$RegeditToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$RegeditToolStripMenuItem.Text = [System.String]'Regedit'
-#
-#SystemInformationMSinfo32exeToolStripMenuItem
-#
-$SystemInformationMSinfo32exeToolStripMenuItem.Name = [System.String]'SystemInformationMSinfo32exeToolStripMenuItem'
-$SystemInformationMSinfo32exeToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$SystemInformationMSinfo32exeToolStripMenuItem.Text = [System.String]'System Information (MSinfo32.exe)'
-#
-#HostsFileOpenToolStripMenuItem
-#
-$HostsFileOpenToolStripMenuItem.Name = [System.String]'HostsFileOpenToolStripMenuItem'
-$HostsFileOpenToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$HostsFileOpenToolStripMenuItem.Text = [System.String]'Hosts File (Open)'
-#
-#HostsFileGetContentToolStripMenuItem
-#
-$HostsFileGetContentToolStripMenuItem.Name = [System.String]'HostsFileGetContentToolStripMenuItem'
-$HostsFileGetContentToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$HostsFileGetContentToolStripMenuItem.Text = [System.String]'Hosts File (Get-Content)'
-#
-#NetStatToolStripMenuItem
-#
-$NetStatToolStripMenuItem.Name = [System.String]'NetStatToolStripMenuItem'
-$NetStatToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$NetStatToolStripMenuItem.Text = [System.String]'NetStat'
-#
-#OtherWindowsAppsToolStripMenuItem
-#
-$OtherWindowsAppsToolStripMenuItem.Name = [System.String]'OtherWindowsAppsToolStripMenuItem'
-$OtherWindowsAppsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]265,[System.Int32]22))
-$OtherWindowsAppsToolStripMenuItem.Text = [System.String]'Other Windows Apps'
+#LabelComputerName
+#
+$LabelComputerName.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]2,[System.Int32]2))
+$LabelComputerName.Name = [System.String]'LabelComputerName'
+$LabelComputerName.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]224,[System.Int32]17))
+$LabelComputerName.TabIndex = [System.Int32]2
+$LabelComputerName.Text = [System.String]'ComputerName'
+$LabelComputerName.UseCompatibleTextRendering = $true
+$LabelComputerName.add_Click($Label1_Click)
 #
 #Form1
 #
