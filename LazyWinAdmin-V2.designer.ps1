@@ -314,6 +314,7 @@ $AboutToolStripMenuItem.Text = [System.String]'About'
 #
 #Panel1
 #
+$Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 $Panel1.Controls.Add($ButtonCheck)
 $Panel1.Controls.Add($ComboBoxComputerName)
 $Panel1.Controls.Add($LabelComputerName)
