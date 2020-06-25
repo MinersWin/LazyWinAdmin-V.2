@@ -37,6 +37,12 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.ToolStripMenuItem]$ScriptsToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$AboutToolStripMenuItem = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.Label]$Label6 = $null
+[System.Windows.Forms.Label]$Label5 = $null
+[System.Windows.Forms.Label]$Label4 = $null
+[System.Windows.Forms.Label]$Label3 = $null
+[System.Windows.Forms.Label]$Label2 = $null
+[System.Windows.Forms.Label]$Label1 = $null
 [System.Windows.Forms.Button]$ButtonCheck = $null
 [System.Windows.Forms.ComboBox]$ComboBoxComputerName = $null
 [System.Windows.Forms.Label]$LabelComputerName = $null
@@ -84,6 +90,12 @@ $Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
 $ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
 $ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
 $LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
+$Label1 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label2 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label3 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label4 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label5 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label6 = (New-Object -TypeName System.Windows.Forms.Label)
 $MenuStrip1.SuspendLayout()
 $Panel1.SuspendLayout()
 $Form1.SuspendLayout()
@@ -315,6 +327,12 @@ $AboutToolStripMenuItem.Text = [System.String]'About'
 #Panel1
 #
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($Label6)
+$Panel1.Controls.Add($Label5)
+$Panel1.Controls.Add($Label4)
+$Panel1.Controls.Add($Label3)
+$Panel1.Controls.Add($Label2)
+$Panel1.Controls.Add($Label1)
 $Panel1.Controls.Add($ButtonCheck)
 $Panel1.Controls.Add($ComboBoxComputerName)
 $Panel1.Controls.Add($LabelComputerName)
@@ -353,6 +371,66 @@ $LabelComputerName.TabIndex = [System.Int32]2
 $LabelComputerName.Text = [System.String]'ComputerName'
 $LabelComputerName.UseCompatibleTextRendering = $true
 $LabelComputerName.add_Click($Label1_Click)
+#
+#Label1
+#
+$Label1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]2))
+$Label1.Name = [System.String]'Label1'
+$Label1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]20))
+$Label1.TabIndex = [System.Int32]5
+$Label1.Text = [System.String]'Ping:'
+$Label1.UseCompatibleTextRendering = $true
+#
+#Label2
+#
+$Label2.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]20))
+$Label2.Name = [System.String]'Label2'
+$Label2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]23))
+$Label2.TabIndex = [System.Int32]6
+$Label2.Text = [System.String]'Permission:'
+$Label2.UseCompatibleTextRendering = $true
+#
+#Label3
+#
+$Label3.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label3.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]450,[System.Int32]3))
+$Label3.Name = [System.String]'Label3'
+$Label3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
+$Label3.TabIndex = [System.Int32]7
+$Label3.Text = [System.String]'RDP:'
+$Label3.UseCompatibleTextRendering = $true
+#
+#Label4
+#
+$Label4.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label4.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]450,[System.Int32]20))
+$Label4.Name = [System.String]'Label4'
+$Label4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
+$Label4.TabIndex = [System.Int32]8
+$Label4.Text = [System.String]'PSRemoting:'
+$Label4.UseCompatibleTextRendering = $true
+#
+#Label5
+#
+$Label5.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label5.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]623,[System.Int32]3))
+$Label5.Name = [System.String]'Label5'
+$Label5.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$Label5.TabIndex = [System.Int32]9
+$Label5.Text = [System.String]'OS:'
+$Label5.UseCompatibleTextRendering = $true
+#
+#Label6
+#
+$Label6.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label6.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]623,[System.Int32]23))
+$Label6.Name = [System.String]'Label6'
+$Label6.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
+$Label6.TabIndex = [System.Int32]10
+$Label6.Text = [System.String]'Uptime:'
+$Label6.UseCompatibleTextRendering = $true
 #
 #Form1
 #
@@ -405,6 +483,12 @@ Add-Member -InputObject $Form1 -Name OtherWindowsAppsToolStripMenuItem -Value $O
 Add-Member -InputObject $Form1 -Name ScriptsToolStripMenuItem -Value $ScriptsToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name AboutToolStripMenuItem -Value $AboutToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name Label6 -Value $Label6 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name Label5 -Value $Label5 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name Label4 -Value $Label4 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name Label3 -Value $Label3 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name Label2 -Value $Label2 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name Label1 -Value $Label1 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name ButtonCheck -Value $ButtonCheck -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name ComboBoxComputerName -Value $ComboBoxComputerName -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name LabelComputerName -Value $LabelComputerName -MemberType NoteProperty
