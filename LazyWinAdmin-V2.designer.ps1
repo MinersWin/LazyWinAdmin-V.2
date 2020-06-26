@@ -133,12 +133,14 @@ $AdminArsenalToolStripMenuItem.Text = [System.String]'AdminArsenal'
 #
 #ActiveDirectoryQuerySearchDialogToolStripMenuItem
 #
+$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ActiveDirectoryQuerySearchDialogToolStripMenuItem.Image')
 $ActiveDirectoryQuerySearchDialogToolStripMenuItem.Name = [System.String]'ActiveDirectoryQuerySearchDialogToolStripMenuItem'
 $ActiveDirectoryQuerySearchDialogToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $ActiveDirectoryQuerySearchDialogToolStripMenuItem.Text = [System.String]'Active Directory Query - Search Dialog'
 #
 #ActiveDirectoryQueryPrintersToolStripMenuItem
 #
+$ActiveDirectoryQueryPrintersToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ActiveDirectoryQueryPrintersToolStripMenuItem.Image')
 $ActiveDirectoryQueryPrintersToolStripMenuItem.Name = [System.String]'ActiveDirectoryQueryPrintersToolStripMenuItem'
 $ActiveDirectoryQueryPrintersToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $ActiveDirectoryQueryPrintersToolStripMenuItem.Text = [System.String]'Active Directory Query - Printers'
@@ -150,18 +152,21 @@ $ToolStripSeparator1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentL
 #
 #CommandPromptToolStripMenuItem
 #
+$CommandPromptToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'CommandPromptToolStripMenuItem.Image')
 $CommandPromptToolStripMenuItem.Name = [System.String]'CommandPromptToolStripMenuItem'
 $CommandPromptToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $CommandPromptToolStripMenuItem.Text = [System.String]'Command Prompt'
 #
 #PowerShellToolStripMenuItem
 #
+$PowerShellToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'PowerShellToolStripMenuItem.Image')
 $PowerShellToolStripMenuItem.Name = [System.String]'PowerShellToolStripMenuItem'
 $PowerShellToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $PowerShellToolStripMenuItem.Text = [System.String]'PowerShell'
 #
 #PowerShellISEToolStripMenuItem
 #
+$PowerShellISEToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'PowerShellISEToolStripMenuItem.Image')
 $PowerShellISEToolStripMenuItem.Name = [System.String]'PowerShellISEToolStripMenuItem'
 $PowerShellISEToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $PowerShellISEToolStripMenuItem.Text = [System.String]'PowerShell ISE'
@@ -173,30 +178,35 @@ $ToolStripSeparator2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentL
 #
 #RemoteDesktopConnectionToolStripMenuItem
 #
+$RemoteDesktopConnectionToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'RemoteDesktopConnectionToolStripMenuItem.Image')
 $RemoteDesktopConnectionToolStripMenuItem.Name = [System.String]'RemoteDesktopConnectionToolStripMenuItem'
 $RemoteDesktopConnectionToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $RemoteDesktopConnectionToolStripMenuItem.Text = [System.String]'Remote Desktop Connection'
 #
 #ShutdownGUIToolStripMenuItem
 #
+$ShutdownGUIToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ShutdownGUIToolStripMenuItem.Image')
 $ShutdownGUIToolStripMenuItem.Name = [System.String]'ShutdownGUIToolStripMenuItem'
 $ShutdownGUIToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $ShutdownGUIToolStripMenuItem.Text = [System.String]'Shutdown GUI'
 #
 #InternetExplorerToolStripMenuItem
 #
+$InternetExplorerToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'InternetExplorerToolStripMenuItem.Image')
 $InternetExplorerToolStripMenuItem.Name = [System.String]'InternetExplorerToolStripMenuItem'
 $InternetExplorerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $InternetExplorerToolStripMenuItem.Text = [System.String]'Internet Explorer'
 #
 #TerminalAdminTsAdminToolStripMenuItem
 #
+$TerminalAdminTsAdminToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'TerminalAdminTsAdminToolStripMenuItem.Image')
 $TerminalAdminTsAdminToolStripMenuItem.Name = [System.String]'TerminalAdminTsAdminToolStripMenuItem'
 $TerminalAdminTsAdminToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $TerminalAdminTsAdminToolStripMenuItem.Text = [System.String]'Terminal Admin (TsAdmin)'
 #
 #NotepadToolStripMenuItem
 #
+$NotepadToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'NotepadToolStripMenuItem.Image')
 $NotepadToolStripMenuItem.Name = [System.String]'NotepadToolStripMenuItem'
 $NotepadToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $NotepadToolStripMenuItem.Text = [System.String]'NotePad'
@@ -204,18 +214,21 @@ $NotepadToolStripMenuItem.add_Click($NotepadToolStripMenuItem_Click)
 #
 #WordPadToolStripMenuItem
 #
+$WordPadToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'WordPadToolStripMenuItem.Image')
 $WordPadToolStripMenuItem.Name = [System.String]'WordPadToolStripMenuItem'
 $WordPadToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $WordPadToolStripMenuItem.Text = [System.String]'WordPad'
 #
 #SysInternalsToolStripMenuItem
 #
+$SysInternalsToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'SysInternalsToolStripMenuItem.Image')
 $SysInternalsToolStripMenuItem.Name = [System.String]'SysInternalsToolStripMenuItem'
 $SysInternalsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $SysInternalsToolStripMenuItem.Text = [System.String]'SysInternals'
 #
 #GenerateAPasswordToolStripMenuItem
 #
+$GenerateAPasswordToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'GenerateAPasswordToolStripMenuItem.Image')
 $GenerateAPasswordToolStripMenuItem.Name = [System.String]'GenerateAPasswordToolStripMenuItem'
 $GenerateAPasswordToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $GenerateAPasswordToolStripMenuItem.Text = [System.String]'Generate a Password'
