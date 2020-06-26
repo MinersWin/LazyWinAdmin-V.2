@@ -37,6 +37,12 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.ToolStripMenuItem]$ScriptsToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$AboutToolStripMenuItem = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.Label]$LabelUptime = $null
+[System.Windows.Forms.Label]$LabelOS = $null
+[System.Windows.Forms.Label]$Label8 = $null
+[System.Windows.Forms.Label]$LabelShure = $null
+[System.Windows.Forms.Label]$LabelPing = $null
+[System.Windows.Forms.Label]$LabelPermission = $null
 [System.Windows.Forms.Label]$Label6 = $null
 [System.Windows.Forms.Label]$Label5 = $null
 [System.Windows.Forms.Label]$Label4 = $null
@@ -87,15 +93,21 @@ $OtherWindowsAppsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.
 $ScriptsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $AboutToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
+$LabelUptime = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelOS = (New-Object -TypeName System.Windows.Forms.Label)
+$Label8 = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelShure = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelPing = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelPermission = (New-Object -TypeName System.Windows.Forms.Label)
+$Label6 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label5 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label4 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label3 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label2 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
 $ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
 $LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
-$Label1 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label2 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label3 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label4 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label5 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label6 = (New-Object -TypeName System.Windows.Forms.Label)
 $MenuStrip1.SuspendLayout()
 $Panel1.SuspendLayout()
 $Form1.SuspendLayout()
@@ -105,7 +117,7 @@ $Form1.SuspendLayout()
 $MenuStrip1.Items.AddRange([System.Windows.Forms.ToolStripItem[]]@($AdminArsenalToolStripMenuItem,$LocalHostToolStripMenuItem,$ScriptsToolStripMenuItem,$AboutToolStripMenuItem))
 $MenuStrip1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]0))
 $MenuStrip1.Name = [System.String]'MenuStrip1'
-$MenuStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1008,[System.Int32]28))
+$MenuStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]28))
 $MenuStrip1.TabIndex = [System.Int32]0
 $MenuStrip1.Text = [System.String]'MenuStrip1'
 #
@@ -327,6 +339,12 @@ $AboutToolStripMenuItem.Text = [System.String]'About'
 #Panel1
 #
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($LabelUptime)
+$Panel1.Controls.Add($LabelOS)
+$Panel1.Controls.Add($Label8)
+$Panel1.Controls.Add($LabelShure)
+$Panel1.Controls.Add($LabelPing)
+$Panel1.Controls.Add($LabelPermission)
 $Panel1.Controls.Add($Label6)
 $Panel1.Controls.Add($Label5)
 $Panel1.Controls.Add($Label4)
@@ -338,8 +356,124 @@ $Panel1.Controls.Add($ComboBoxComputerName)
 $Panel1.Controls.Add($LabelComputerName)
 $Panel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]27))
 $Panel1.Name = [System.String]'Panel1'
-$Panel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]984,[System.Int32]50))
+$Panel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1047,[System.Int32]50))
 $Panel1.TabIndex = [System.Int32]1
+#
+#LabelUptime
+#
+$LabelUptime.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]789,[System.Int32]26))
+$LabelUptime.Name = [System.String]'LabelUptime'
+$LabelUptime.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]242,[System.Int32]23))
+$LabelUptime.TabIndex = [System.Int32]16
+$LabelUptime.Text = [System.String]'timesincestart'
+$LabelUptime.UseCompatibleTextRendering = $true
+#
+#LabelOS
+#
+$LabelOS.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]789,[System.Int32]3))
+$LabelOS.Name = [System.String]'LabelOS'
+$LabelOS.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]242,[System.Int32]23))
+$LabelOS.TabIndex = [System.Int32]15
+$LabelOS.Text = [System.String]'IThinkWindows'
+$LabelOS.UseCompatibleTextRendering = $true
+#
+#Label8
+#
+$Label8.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]612,[System.Int32]27))
+$Label8.Name = [System.String]'Label8'
+$Label8.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$Label8.TabIndex = [System.Int32]14
+$Label8.Text = [System.String]'Label8'
+$Label8.UseCompatibleTextRendering = $true
+#
+#LabelShure
+#
+$LabelShure.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]612,[System.Int32]1))
+$LabelShure.Name = [System.String]'LabelShure'
+$LabelShure.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$LabelShure.TabIndex = [System.Int32]13
+$LabelShure.Text = [System.String]'Shure'
+$LabelShure.UseCompatibleTextRendering = $true
+#
+#LabelPing
+#
+$LabelPing.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]390,[System.Int32]2))
+$LabelPing.Name = [System.String]'LabelPing'
+$LabelPing.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$LabelPing.TabIndex = [System.Int32]12
+$LabelPing.Text = [System.String]'Ping'
+$LabelPing.UseCompatibleTextRendering = $true
+#
+#LabelPermission
+#
+$LabelPermission.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]390,[System.Int32]26))
+$LabelPermission.Name = [System.String]'LabelPermission'
+$LabelPermission.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$LabelPermission.TabIndex = [System.Int32]11
+$LabelPermission.Text = [System.String]'Shure'
+$LabelPermission.UseCompatibleTextRendering = $true
+#
+#Label6
+#
+$Label6.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label6.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]718,[System.Int32]24))
+$Label6.Name = [System.String]'Label6'
+$Label6.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
+$Label6.TabIndex = [System.Int32]10
+$Label6.Text = [System.String]'Uptime:'
+$Label6.UseCompatibleTextRendering = $true
+$Label6.add_Click($Label6_Click)
+#
+#Label5
+#
+$Label5.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label5.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]718,[System.Int32]3))
+$Label5.Name = [System.String]'Label5'
+$Label5.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
+$Label5.TabIndex = [System.Int32]9
+$Label5.Text = [System.String]'OS:'
+$Label5.UseCompatibleTextRendering = $true
+$Label5.add_Click($Label5_Click)
+#
+#Label4
+#
+$Label4.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label4.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]513,[System.Int32]27))
+$Label4.Name = [System.String]'Label4'
+$Label4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
+$Label4.TabIndex = [System.Int32]8
+$Label4.Text = [System.String]'PSRemoting:'
+$Label4.UseCompatibleTextRendering = $true
+#
+#Label3
+#
+$Label3.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label3.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]513,[System.Int32]3))
+$Label3.Name = [System.String]'Label3'
+$Label3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
+$Label3.TabIndex = [System.Int32]7
+$Label3.Text = [System.String]'RDP:'
+$Label3.UseCompatibleTextRendering = $true
+#
+#Label2
+#
+$Label2.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]24))
+$Label2.Name = [System.String]'Label2'
+$Label2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]23))
+$Label2.TabIndex = [System.Int32]6
+$Label2.Text = [System.String]'Permission:'
+$Label2.UseCompatibleTextRendering = $true
+#
+#Label1
+#
+$Label1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$Label1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]2))
+$Label1.Name = [System.String]'Label1'
+$Label1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]20))
+$Label1.TabIndex = [System.Int32]5
+$Label1.Text = [System.String]'Ping:'
+$Label1.UseCompatibleTextRendering = $true
 #
 #ButtonCheck
 #
@@ -372,73 +506,13 @@ $LabelComputerName.Text = [System.String]'ComputerName'
 $LabelComputerName.UseCompatibleTextRendering = $true
 $LabelComputerName.add_Click($Label1_Click)
 #
-#Label1
-#
-$Label1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]2))
-$Label1.Name = [System.String]'Label1'
-$Label1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]20))
-$Label1.TabIndex = [System.Int32]5
-$Label1.Text = [System.String]'Ping:'
-$Label1.UseCompatibleTextRendering = $true
-#
-#Label2
-#
-$Label2.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]20))
-$Label2.Name = [System.String]'Label2'
-$Label2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]23))
-$Label2.TabIndex = [System.Int32]6
-$Label2.Text = [System.String]'Permission:'
-$Label2.UseCompatibleTextRendering = $true
-#
-#Label3
-#
-$Label3.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label3.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]450,[System.Int32]3))
-$Label3.Name = [System.String]'Label3'
-$Label3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
-$Label3.TabIndex = [System.Int32]7
-$Label3.Text = [System.String]'RDP:'
-$Label3.UseCompatibleTextRendering = $true
-#
-#Label4
-#
-$Label4.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label4.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]450,[System.Int32]20))
-$Label4.Name = [System.String]'Label4'
-$Label4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
-$Label4.TabIndex = [System.Int32]8
-$Label4.Text = [System.String]'PSRemoting:'
-$Label4.UseCompatibleTextRendering = $true
-#
-#Label5
-#
-$Label5.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label5.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]623,[System.Int32]3))
-$Label5.Name = [System.String]'Label5'
-$Label5.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
-$Label5.TabIndex = [System.Int32]9
-$Label5.Text = [System.String]'OS:'
-$Label5.UseCompatibleTextRendering = $true
-#
-#Label6
-#
-$Label6.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label6.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]623,[System.Int32]23))
-$Label6.Name = [System.String]'Label6'
-$Label6.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
-$Label6.TabIndex = [System.Int32]10
-$Label6.Text = [System.String]'Uptime:'
-$Label6.UseCompatibleTextRendering = $true
-#
 #Form1
 #
-$Form1.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1008,[System.Int32]681))
+$Form1.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]681))
 $Form1.Controls.Add($Panel1)
 $Form1.Controls.Add($MenuStrip1)
 $Form1.MainMenuStrip = $MenuStrip1
-$Form1.Text = [System.String]'Form1'
+$Form1.Text = [System.String]'FormLWA'
 $MenuStrip1.ResumeLayout($false)
 $MenuStrip1.PerformLayout()
 $Panel1.ResumeLayout($false)
@@ -483,6 +557,12 @@ Add-Member -InputObject $Form1 -Name OtherWindowsAppsToolStripMenuItem -Value $O
 Add-Member -InputObject $Form1 -Name ScriptsToolStripMenuItem -Value $ScriptsToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name AboutToolStripMenuItem -Value $AboutToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name LabelUptime -Value $LabelUptime -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name LabelOS -Value $LabelOS -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name Label8 -Value $Label8 -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name LabelShure -Value $LabelShure -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name LabelPing -Value $LabelPing -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name LabelPermission -Value $LabelPermission -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name Label6 -Value $Label6 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name Label5 -Value $Label5 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name Label4 -Value $Label4 -MemberType NoteProperty
