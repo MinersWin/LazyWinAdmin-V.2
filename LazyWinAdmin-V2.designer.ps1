@@ -34,6 +34,20 @@ $FormLWA = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.ToolStripMenuItem]$HostsFileGetContentToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$NetStatToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$OtherWindowsAppsToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$AddRemoveProgramsToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$AddRemoveProgramsWindowsFeaturesToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$AdministrativeToolsToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$AuthorizationManagerToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$CertificateManagerToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$ComponentServiceToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$DiskManagementToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$GroupPolicyEditorlocalToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$LocalSecuritySettingsToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$LocalUsersAndGroupsToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$NetworkConnectionsToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$PerformanceMonitorToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$SharedFoldersToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$ScheduledTasksToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$ScriptsToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$AboutToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$ExitToolStripMenuItem = $null
@@ -110,6 +124,20 @@ $ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
 $ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
 $LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
 $ExitToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AddRemoveProgramsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AdministrativeToolsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AuthorizationManagerToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$CertificateManagerToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ComponentServiceToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$DiskManagementToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$GroupPolicyEditorlocalToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$LocalSecuritySettingsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$LocalUsersAndGroupsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$NetworkConnectionsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$PerformanceMonitorToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$SharedFoldersToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ScheduledTasksToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $MenuStrip1.SuspendLayout()
 $Panel1.SuspendLayout()
 $FormLWA.SuspendLayout()
@@ -337,6 +365,7 @@ $NetStatToolStripMenuItem.Text = [System.String]'NetStat'
 #
 #OtherWindowsAppsToolStripMenuItem
 #
+$OtherWindowsAppsToolStripMenuItem.DropDownItems.AddRange([System.Windows.Forms.ToolStripItem[]]@($AddRemoveProgramsToolStripMenuItem,$AddRemoveProgramsWindowsFeaturesToolStripMenuItem,$AdministrativeToolsToolStripMenuItem,$AuthorizationManagerToolStripMenuItem,$CertificateManagerToolStripMenuItem,$ComponentServiceToolStripMenuItem,$DiskManagementToolStripMenuItem,$GroupPolicyEditorlocalToolStripMenuItem,$LocalSecuritySettingsToolStripMenuItem,$LocalUsersAndGroupsToolStripMenuItem,$NetworkConnectionsToolStripMenuItem,$PerformanceMonitorToolStripMenuItem,$SharedFoldersToolStripMenuItem,$ScheduledTasksToolStripMenuItem))
 $OtherWindowsAppsToolStripMenuItem.Name = [System.String]'OtherWindowsAppsToolStripMenuItem'
 $OtherWindowsAppsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
 $OtherWindowsAppsToolStripMenuItem.Text = [System.String]'Other Windows Apps'
@@ -532,6 +561,91 @@ $ExitToolStripMenuItem.Name = [System.String]'ExitToolStripMenuItem'
 $ExitToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]61,[System.Int32]24))
 $ExitToolStripMenuItem.Text = [System.String]'Exit'
 #
+#AddRemoveProgramsToolStripMenuItem
+#
+$AddRemoveProgramsToolStripMenuItem.Name = [System.String]'AddRemoveProgramsToolStripMenuItem'
+$AddRemoveProgramsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AddRemoveProgramsToolStripMenuItem.Text = [System.String]'Add/Remove Programs'
+#
+#AddRemoveProgramsWindowsFeaturesToolStripMenuItem
+#
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Name = [System.String]'AddRemoveProgramsWindowsFeaturesToolStripMenuItem'
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Text = [System.String]'Add/Remove Programs - Windows Features'
+#
+#AdministrativeToolsToolStripMenuItem
+#
+$AdministrativeToolsToolStripMenuItem.Name = [System.String]'AdministrativeToolsToolStripMenuItem'
+$AdministrativeToolsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AdministrativeToolsToolStripMenuItem.Text = [System.String]'Administrative Tools'
+#
+#AuthorizationManagerToolStripMenuItem
+#
+$AuthorizationManagerToolStripMenuItem.Name = [System.String]'AuthorizationManagerToolStripMenuItem'
+$AuthorizationManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AuthorizationManagerToolStripMenuItem.Text = [System.String]'Authorization Manager'
+#
+#CertificateManagerToolStripMenuItem
+#
+$CertificateManagerToolStripMenuItem.Name = [System.String]'CertificateManagerToolStripMenuItem'
+$CertificateManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$CertificateManagerToolStripMenuItem.Text = [System.String]'Certificate Manager'
+$CertificateManagerToolStripMenuItem.add_Click($VertificateManagerToolStripMenuItem_Click)
+#
+#ComponentServiceToolStripMenuItem
+#
+$ComponentServiceToolStripMenuItem.Name = [System.String]'ComponentServiceToolStripMenuItem'
+$ComponentServiceToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$ComponentServiceToolStripMenuItem.Text = [System.String]'Component Service'
+#
+#DiskManagementToolStripMenuItem
+#
+$DiskManagementToolStripMenuItem.Name = [System.String]'DiskManagementToolStripMenuItem'
+$DiskManagementToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$DiskManagementToolStripMenuItem.Text = [System.String]'Disk Management'
+#
+#GroupPolicyEditorlocalToolStripMenuItem
+#
+$GroupPolicyEditorlocalToolStripMenuItem.Name = [System.String]'GroupPolicyEditorlocalToolStripMenuItem'
+$GroupPolicyEditorlocalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$GroupPolicyEditorlocalToolStripMenuItem.Text = [System.String]'Group Policy Editor (local)'
+#
+#LocalSecuritySettingsToolStripMenuItem
+#
+$LocalSecuritySettingsToolStripMenuItem.Name = [System.String]'LocalSecuritySettingsToolStripMenuItem'
+$LocalSecuritySettingsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$LocalSecuritySettingsToolStripMenuItem.Text = [System.String]'Local Security Settings'
+#
+#LocalUsersAndGroupsToolStripMenuItem
+#
+$LocalUsersAndGroupsToolStripMenuItem.Name = [System.String]'LocalUsersAndGroupsToolStripMenuItem'
+$LocalUsersAndGroupsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$LocalUsersAndGroupsToolStripMenuItem.Text = [System.String]'Local Users and Groups'
+#
+#NetworkConnectionsToolStripMenuItem
+#
+$NetworkConnectionsToolStripMenuItem.Name = [System.String]'NetworkConnectionsToolStripMenuItem'
+$NetworkConnectionsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$NetworkConnectionsToolStripMenuItem.Text = [System.String]'Network Connections'
+#
+#PerformanceMonitorToolStripMenuItem
+#
+$PerformanceMonitorToolStripMenuItem.Name = [System.String]'PerformanceMonitorToolStripMenuItem'
+$PerformanceMonitorToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$PerformanceMonitorToolStripMenuItem.Text = [System.String]'Performance Monitor'
+#
+#SharedFoldersToolStripMenuItem
+#
+$SharedFoldersToolStripMenuItem.Name = [System.String]'SharedFoldersToolStripMenuItem'
+$SharedFoldersToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$SharedFoldersToolStripMenuItem.Text = [System.String]'Shared Folders'
+#
+#ScheduledTasksToolStripMenuItem
+#
+$ScheduledTasksToolStripMenuItem.Name = [System.String]'ScheduledTasksToolStripMenuItem'
+$ScheduledTasksToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$ScheduledTasksToolStripMenuItem.Text = [System.String]'Scheduled Tasks'
+#
 #FormLWA
 #
 $FormLWA.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]681))
@@ -582,6 +696,20 @@ Add-Member -InputObject $FormLWA -Name HostsFileOpenToolStripMenuItem -Value $Ho
 Add-Member -InputObject $FormLWA -Name HostsFileGetContentToolStripMenuItem -Value $HostsFileGetContentToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name NetStatToolStripMenuItem -Value $NetStatToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name OtherWindowsAppsToolStripMenuItem -Value $OtherWindowsAppsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name AddRemoveProgramsToolStripMenuItem -Value $AddRemoveProgramsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name AddRemoveProgramsWindowsFeaturesToolStripMenuItem -Value $AddRemoveProgramsWindowsFeaturesToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name AdministrativeToolsToolStripMenuItem -Value $AdministrativeToolsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name AuthorizationManagerToolStripMenuItem -Value $AuthorizationManagerToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name CertificateManagerToolStripMenuItem -Value $CertificateManagerToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ComponentServiceToolStripMenuItem -Value $ComponentServiceToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name DiskManagementToolStripMenuItem -Value $DiskManagementToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name GroupPolicyEditorlocalToolStripMenuItem -Value $GroupPolicyEditorlocalToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LocalSecuritySettingsToolStripMenuItem -Value $LocalSecuritySettingsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LocalUsersAndGroupsToolStripMenuItem -Value $LocalUsersAndGroupsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name NetworkConnectionsToolStripMenuItem -Value $NetworkConnectionsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name PerformanceMonitorToolStripMenuItem -Value $PerformanceMonitorToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name SharedFoldersToolStripMenuItem -Value $SharedFoldersToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ScheduledTasksToolStripMenuItem -Value $ScheduledTasksToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name ScriptsToolStripMenuItem -Value $ScriptsToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name AboutToolStripMenuItem -Value $AboutToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name ExitToolStripMenuItem -Value $ExitToolStripMenuItem -MemberType NoteProperty
