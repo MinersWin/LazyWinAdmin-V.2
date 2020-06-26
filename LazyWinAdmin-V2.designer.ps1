@@ -1,4 +1,4 @@
-$Form1 = New-Object -TypeName System.Windows.Forms.Form
+$FormLWA = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.MenuStrip]$MenuStrip1 = $null
 [System.Windows.Forms.ToolStripMenuItem]$AdminArsenalToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$ActiveDirectoryQuerySearchDialogToolStripMenuItem = $null
@@ -36,6 +36,7 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.ToolStripMenuItem]$OtherWindowsAppsToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$ScriptsToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$AboutToolStripMenuItem = $null
+[System.Windows.Forms.ToolStripMenuItem]$ExitToolStripMenuItem = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
 [System.Windows.Forms.Label]$LabelUptime = $null
 [System.Windows.Forms.Label]$LabelOS = $null
@@ -108,13 +109,14 @@ $Label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
 $ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
 $LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
+$ExitToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $MenuStrip1.SuspendLayout()
 $Panel1.SuspendLayout()
-$Form1.SuspendLayout()
+$FormLWA.SuspendLayout()
 #
 #MenuStrip1
 #
-$MenuStrip1.Items.AddRange([System.Windows.Forms.ToolStripItem[]]@($AdminArsenalToolStripMenuItem,$LocalHostToolStripMenuItem,$ScriptsToolStripMenuItem,$AboutToolStripMenuItem))
+$MenuStrip1.Items.AddRange([System.Windows.Forms.ToolStripItem[]]@($AdminArsenalToolStripMenuItem,$LocalHostToolStripMenuItem,$ScriptsToolStripMenuItem,$AboutToolStripMenuItem,$ExitToolStripMenuItem))
 $MenuStrip1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]0))
 $MenuStrip1.Name = [System.String]'MenuStrip1'
 $MenuStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]28))
@@ -124,8 +126,9 @@ $MenuStrip1.Text = [System.String]'MenuStrip1'
 #AdminArsenalToolStripMenuItem
 #
 $AdminArsenalToolStripMenuItem.DropDownItems.AddRange([System.Windows.Forms.ToolStripItem[]]@($ActiveDirectoryQuerySearchDialogToolStripMenuItem,$ActiveDirectoryQueryPrintersToolStripMenuItem,$ToolStripSeparator1,$CommandPromptToolStripMenuItem,$PowerShellToolStripMenuItem,$PowerShellISEToolStripMenuItem,$ToolStripSeparator2,$RemoteDesktopConnectionToolStripMenuItem,$ShutdownGUIToolStripMenuItem,$InternetExplorerToolStripMenuItem,$TerminalAdminTsAdminToolStripMenuItem,$NotepadToolStripMenuItem,$WordPadToolStripMenuItem,$SysInternalsToolStripMenuItem,$GenerateAPasswordToolStripMenuItem))
+$AdminArsenalToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'AdminArsenalToolStripMenuItem.Image')
 $AdminArsenalToolStripMenuItem.Name = [System.String]'AdminArsenalToolStripMenuItem'
-$AdminArsenalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]114,[System.Int32]24))
+$AdminArsenalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]130,[System.Int32]24))
 $AdminArsenalToolStripMenuItem.Text = [System.String]'AdminArsenal'
 #
 #ActiveDirectoryQuerySearchDialogToolStripMenuItem
@@ -220,8 +223,9 @@ $GenerateAPasswordToolStripMenuItem.Text = [System.String]'Generate a Password'
 #LocalHostToolStripMenuItem
 #
 $LocalHostToolStripMenuItem.DropDownItems.AddRange([System.Windows.Forms.ToolStripItem[]]@($CurrentInformationToolStripMenuItem,$NetstatsListeningPortsToolStripMenuItem,$PowerShellGetRegisteredSnappinToolStripMenuItem,$ToolStripSeparator3,$MMCexeToolStripMenuItem,$MMCComputerManagementToolStripMenuItem,$MMCServicesToolStripMenuItem,$ToolStripSeparator4,$SystemProperiesToolStripMenuItem,$DeviceManagerToolStripMenuItem,$TaskManagerToolStripMenuItem,$RegeditToolStripMenuItem,$SystemInformationMSinfo32exeToolStripMenuItem,$HostsFileOpenToolStripMenuItem,$HostsFileGetContentToolStripMenuItem,$NetStatToolStripMenuItem,$OtherWindowsAppsToolStripMenuItem))
+$LocalHostToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'LocalHostToolStripMenuItem.Image')
 $LocalHostToolStripMenuItem.Name = [System.String]'LocalHostToolStripMenuItem'
-$LocalHostToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]87,[System.Int32]24))
+$LocalHostToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]103,[System.Int32]24))
 $LocalHostToolStripMenuItem.Text = [System.String]'LocalHost'
 #
 #CurrentInformationToolStripMenuItem
@@ -326,14 +330,16 @@ $OtherWindowsAppsToolStripMenuItem.Text = [System.String]'Other Windows Apps'
 #
 #ScriptsToolStripMenuItem
 #
+$ScriptsToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ScriptsToolStripMenuItem.Image')
 $ScriptsToolStripMenuItem.Name = [System.String]'ScriptsToolStripMenuItem'
-$ScriptsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]24))
+$ScriptsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]81,[System.Int32]24))
 $ScriptsToolStripMenuItem.Text = [System.String]'Scripts'
 #
 #AboutToolStripMenuItem
 #
+$AboutToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'AboutToolStripMenuItem.Image')
 $AboutToolStripMenuItem.Name = [System.String]'AboutToolStripMenuItem'
-$AboutToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]62,[System.Int32]24))
+$AboutToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]24))
 $AboutToolStripMenuItem.Text = [System.String]'About'
 #
 #Panel1
@@ -506,71 +512,81 @@ $LabelComputerName.Text = [System.String]'ComputerName'
 $LabelComputerName.UseCompatibleTextRendering = $true
 $LabelComputerName.add_Click($Label1_Click)
 #
-#Form1
+#ExitToolStripMenuItem
 #
-$Form1.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]681))
-$Form1.Controls.Add($Panel1)
-$Form1.Controls.Add($MenuStrip1)
-$Form1.MainMenuStrip = $MenuStrip1
-$Form1.Text = [System.String]'FormLWA'
+$ExitToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ExitToolStripMenuItem.Image')
+$ExitToolStripMenuItem.Name = [System.String]'ExitToolStripMenuItem'
+$ExitToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]61,[System.Int32]24))
+$ExitToolStripMenuItem.Text = [System.String]'Exit'
+#
+#FormLWA
+#
+$FormLWA.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]681))
+$FormLWA.Controls.Add($Panel1)
+$FormLWA.Controls.Add($MenuStrip1)
+$FormLWA.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
+$FormLWA.MainMenuStrip = $MenuStrip1
+$FormLWA.Name = [System.String]'FormLWA'
+$FormLWA.Text = [System.String]'Windows Lazy Admin 2.0'
 $MenuStrip1.ResumeLayout($false)
 $MenuStrip1.PerformLayout()
 $Panel1.ResumeLayout($false)
-$Form1.ResumeLayout($false)
-$Form1.PerformLayout()
-Add-Member -InputObject $Form1 -Name base -Value $base -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name MenuStrip1 -Value $MenuStrip1 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name AdminArsenalToolStripMenuItem -Value $AdminArsenalToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ActiveDirectoryQuerySearchDialogToolStripMenuItem -Value $ActiveDirectoryQuerySearchDialogToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ActiveDirectoryQueryPrintersToolStripMenuItem -Value $ActiveDirectoryQueryPrintersToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ToolStripSeparator1 -Value $ToolStripSeparator1 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name CommandPromptToolStripMenuItem -Value $CommandPromptToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name PowerShellToolStripMenuItem -Value $PowerShellToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name PowerShellISEToolStripMenuItem -Value $PowerShellISEToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ToolStripSeparator2 -Value $ToolStripSeparator2 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name RemoteDesktopConnectionToolStripMenuItem -Value $RemoteDesktopConnectionToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ShutdownGUIToolStripMenuItem -Value $ShutdownGUIToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name InternetExplorerToolStripMenuItem -Value $InternetExplorerToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name TerminalAdminTsAdminToolStripMenuItem -Value $TerminalAdminTsAdminToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name NotepadToolStripMenuItem -Value $NotepadToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name WordPadToolStripMenuItem -Value $WordPadToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name SysInternalsToolStripMenuItem -Value $SysInternalsToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name GenerateAPasswordToolStripMenuItem -Value $GenerateAPasswordToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name LocalHostToolStripMenuItem -Value $LocalHostToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name CurrentInformationToolStripMenuItem -Value $CurrentInformationToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name NetstatsListeningPortsToolStripMenuItem -Value $NetstatsListeningPortsToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name PowerShellGetRegisteredSnappinToolStripMenuItem -Value $PowerShellGetRegisteredSnappinToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ToolStripSeparator3 -Value $ToolStripSeparator3 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name MMCexeToolStripMenuItem -Value $MMCexeToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name MMCComputerManagementToolStripMenuItem -Value $MMCComputerManagementToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name MMCServicesToolStripMenuItem -Value $MMCServicesToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ToolStripSeparator4 -Value $ToolStripSeparator4 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name SystemProperiesToolStripMenuItem -Value $SystemProperiesToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name DeviceManagerToolStripMenuItem -Value $DeviceManagerToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name TaskManagerToolStripMenuItem -Value $TaskManagerToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name RegeditToolStripMenuItem -Value $RegeditToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name SystemInformationMSinfo32exeToolStripMenuItem -Value $SystemInformationMSinfo32exeToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name HostsFileOpenToolStripMenuItem -Value $HostsFileOpenToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name HostsFileGetContentToolStripMenuItem -Value $HostsFileGetContentToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name NetStatToolStripMenuItem -Value $NetStatToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name OtherWindowsAppsToolStripMenuItem -Value $OtherWindowsAppsToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ScriptsToolStripMenuItem -Value $ScriptsToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name AboutToolStripMenuItem -Value $AboutToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Panel1 -Value $Panel1 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name LabelUptime -Value $LabelUptime -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name LabelOS -Value $LabelOS -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Label8 -Value $Label8 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name LabelShure -Value $LabelShure -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name LabelPing -Value $LabelPing -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name LabelPermission -Value $LabelPermission -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Label6 -Value $Label6 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Label5 -Value $Label5 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Label4 -Value $Label4 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Label3 -Value $Label3 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Label2 -Value $Label2 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name Label1 -Value $Label1 -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ButtonCheck -Value $ButtonCheck -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name ComboBoxComputerName -Value $ComboBoxComputerName -MemberType NoteProperty
-Add-Member -InputObject $Form1 -Name LabelComputerName -Value $LabelComputerName -MemberType NoteProperty
+$FormLWA.ResumeLayout($false)
+$FormLWA.PerformLayout()
+Add-Member -InputObject $FormLWA -Name base -Value $base -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name MenuStrip1 -Value $MenuStrip1 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name AdminArsenalToolStripMenuItem -Value $AdminArsenalToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ActiveDirectoryQuerySearchDialogToolStripMenuItem -Value $ActiveDirectoryQuerySearchDialogToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ActiveDirectoryQueryPrintersToolStripMenuItem -Value $ActiveDirectoryQueryPrintersToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ToolStripSeparator1 -Value $ToolStripSeparator1 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name CommandPromptToolStripMenuItem -Value $CommandPromptToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name PowerShellToolStripMenuItem -Value $PowerShellToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name PowerShellISEToolStripMenuItem -Value $PowerShellISEToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ToolStripSeparator2 -Value $ToolStripSeparator2 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name RemoteDesktopConnectionToolStripMenuItem -Value $RemoteDesktopConnectionToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ShutdownGUIToolStripMenuItem -Value $ShutdownGUIToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name InternetExplorerToolStripMenuItem -Value $InternetExplorerToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TerminalAdminTsAdminToolStripMenuItem -Value $TerminalAdminTsAdminToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name NotepadToolStripMenuItem -Value $NotepadToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name WordPadToolStripMenuItem -Value $WordPadToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name SysInternalsToolStripMenuItem -Value $SysInternalsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name GenerateAPasswordToolStripMenuItem -Value $GenerateAPasswordToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LocalHostToolStripMenuItem -Value $LocalHostToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name CurrentInformationToolStripMenuItem -Value $CurrentInformationToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name NetstatsListeningPortsToolStripMenuItem -Value $NetstatsListeningPortsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name PowerShellGetRegisteredSnappinToolStripMenuItem -Value $PowerShellGetRegisteredSnappinToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ToolStripSeparator3 -Value $ToolStripSeparator3 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name MMCexeToolStripMenuItem -Value $MMCexeToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name MMCComputerManagementToolStripMenuItem -Value $MMCComputerManagementToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name MMCServicesToolStripMenuItem -Value $MMCServicesToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ToolStripSeparator4 -Value $ToolStripSeparator4 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name SystemProperiesToolStripMenuItem -Value $SystemProperiesToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name DeviceManagerToolStripMenuItem -Value $DeviceManagerToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TaskManagerToolStripMenuItem -Value $TaskManagerToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name RegeditToolStripMenuItem -Value $RegeditToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name SystemInformationMSinfo32exeToolStripMenuItem -Value $SystemInformationMSinfo32exeToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name HostsFileOpenToolStripMenuItem -Value $HostsFileOpenToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name HostsFileGetContentToolStripMenuItem -Value $HostsFileGetContentToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name NetStatToolStripMenuItem -Value $NetStatToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name OtherWindowsAppsToolStripMenuItem -Value $OtherWindowsAppsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ScriptsToolStripMenuItem -Value $ScriptsToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name AboutToolStripMenuItem -Value $AboutToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ExitToolStripMenuItem -Value $ExitToolStripMenuItem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelUptime -Value $LabelUptime -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelOS -Value $LabelOS -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Label8 -Value $Label8 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelShure -Value $LabelShure -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelPing -Value $LabelPing -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelPermission -Value $LabelPermission -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Label6 -Value $Label6 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Label5 -Value $Label5 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Label4 -Value $Label4 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Label3 -Value $Label3 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Label2 -Value $Label2 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name Label1 -Value $Label1 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ButtonCheck -Value $ButtonCheck -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name ComboBoxComputerName -Value $ComboBoxComputerName -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelComputerName -Value $LabelComputerName -MemberType NoteProperty
 }
 . InitializeComponent
