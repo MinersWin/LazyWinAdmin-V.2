@@ -11,7 +11,6 @@ $FormLWA = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.ToolStripMenuItem]$RemoteDesktopConnectionToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$ShutdownGUIToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$InternetExplorerToolStripMenuItem = $null
-[System.Windows.Forms.ToolStripMenuItem]$TerminalAdminTsAdminToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$NotepadToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$WordPadToolStripMenuItem = $null
 [System.Windows.Forms.ToolStripMenuItem]$SysInternalsToolStripMenuItem = $null
@@ -92,7 +91,6 @@ $ToolStripSeparator2 = (New-Object -TypeName System.Windows.Forms.ToolStripSepar
 $RemoteDesktopConnectionToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $ShutdownGUIToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $InternetExplorerToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$TerminalAdminTsAdminToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $NotepadToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $WordPadToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $SysInternalsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
@@ -174,7 +172,7 @@ $MenuStrip1.Text = [System.String]'MenuStrip1'
 #
 #AdminArsenalToolStripMenuItem
 #
-$AdminArsenalToolStripMenuItem.DropDownItems.AddRange([System.Windows.Forms.ToolStripItem[]]@($ActiveDirectoryQuerySearchDialogToolStripMenuItem,$ActiveDirectoryQueryPrintersToolStripMenuItem,$ToolStripSeparator1,$CommandPromptToolStripMenuItem,$PowerShellToolStripMenuItem,$PowerShellISEToolStripMenuItem,$ToolStripSeparator2,$RemoteDesktopConnectionToolStripMenuItem,$ShutdownGUIToolStripMenuItem,$InternetExplorerToolStripMenuItem,$TerminalAdminTsAdminToolStripMenuItem,$NotepadToolStripMenuItem,$WordPadToolStripMenuItem,$SysInternalsToolStripMenuItem,$GenerateAPasswordToolStripMenuItem))
+$AdminArsenalToolStripMenuItem.DropDownItems.AddRange([System.Windows.Forms.ToolStripItem[]]@($ActiveDirectoryQuerySearchDialogToolStripMenuItem,$ActiveDirectoryQueryPrintersToolStripMenuItem,$ToolStripSeparator1,$CommandPromptToolStripMenuItem,$PowerShellToolStripMenuItem,$PowerShellISEToolStripMenuItem,$ToolStripSeparator2,$RemoteDesktopConnectionToolStripMenuItem,$ShutdownGUIToolStripMenuItem,$InternetExplorerToolStripMenuItem,$NotepadToolStripMenuItem,$WordPadToolStripMenuItem,$SysInternalsToolStripMenuItem,$GenerateAPasswordToolStripMenuItem))
 $AdminArsenalToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'AdminArsenalToolStripMenuItem.Image')
 $AdminArsenalToolStripMenuItem.Name = [System.String]'AdminArsenalToolStripMenuItem'
 $AdminArsenalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]130,[System.Int32]24))
@@ -245,13 +243,6 @@ $InternetExplorerToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'In
 $InternetExplorerToolStripMenuItem.Name = [System.String]'InternetExplorerToolStripMenuItem'
 $InternetExplorerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
 $InternetExplorerToolStripMenuItem.Text = [System.String]'Internet Explorer'
-#
-#TerminalAdminTsAdminToolStripMenuItem
-#
-$TerminalAdminTsAdminToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'TerminalAdminTsAdminToolStripMenuItem.Image')
-$TerminalAdminTsAdminToolStripMenuItem.Name = [System.String]'TerminalAdminTsAdminToolStripMenuItem'
-$TerminalAdminTsAdminToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]334,[System.Int32]24))
-$TerminalAdminTsAdminToolStripMenuItem.Text = [System.String]'Terminal Admin (TsAdmin)'
 #
 #NotepadToolStripMenuItem
 #
@@ -797,7 +788,6 @@ Add-Member -InputObject $FormLWA -Name ToolStripSeparator2 -Value $ToolStripSepa
 Add-Member -InputObject $FormLWA -Name RemoteDesktopConnectionToolStripMenuItem -Value $RemoteDesktopConnectionToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name ShutdownGUIToolStripMenuItem -Value $ShutdownGUIToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name InternetExplorerToolStripMenuItem -Value $InternetExplorerToolStripMenuItem -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name TerminalAdminTsAdminToolStripMenuItem -Value $TerminalAdminTsAdminToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name NotepadToolStripMenuItem -Value $NotepadToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name WordPadToolStripMenuItem -Value $WordPadToolStripMenuItem -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name SysInternalsToolStripMenuItem -Value $SysInternalsToolStripMenuItem -MemberType NoteProperty

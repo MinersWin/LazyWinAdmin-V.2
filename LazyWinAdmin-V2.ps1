@@ -28,9 +28,26 @@
                       https://github.com/lazywinadmin/lazywinadmin_GUI
 #>
 Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName 'System.Web'
 . (Join-Path $PSScriptRoot 'LazyWinAdmin-V2.designer.ps1')
-#Bind Functions
+##########################################
+############################Bind Functions
+##########################################
+#Button
 $ButtonCheck.Add_Click{(CheckHostname)}
+#MenuStrip
+$ActiveDirectoryQuerySearchDialogToolStripMenuItem.Add_Click{(Rundll32 dsquery.dll OpenQueryWindow)}
+$ActiveDirectoryQueryPrintersToolStripMenuItem.Add_Click{$TemporaryFile = [System.IO.Path]::GetTempFileName().Replace(".tmp", ".qds");Add-Content $TemporaryFile "`n[CommonQuery]`nHandler=5EE6238AC231D011891C00A024AB2DBBC1`nForm=70F077B5E27ED011913F00AA00C16E65DB`n[DsQuery]`nViewMode=0413000017`nEnableFilter=0000000000`n[Microsoft.Printers.MoreChoices]`nLocationLength=1200000012`nLocationValue=2400440079006E0061006D00690063004C006F0063006100740069006F006E002400000046`ncolor=0000000000`nduplex=0000000000`nstapling=0000000000`nresolution=0000000000`nspeed=0100000001`nsizeLength=0100000001`nsizeValue=000000`n[Microsoft.PropertyWell]`nItems=0000000000";Start-Process $TemporaryFile;Start-Sleep -Seconds 3;Remove-Item -Force $TemporaryFile}
+$CommandPromptToolStripMenuItem.Add_Click{Start-Process cmd}
+$PowerShellToolStripMenuItem.Add_Click{Start-Process powershell}
+$PowerShellISEToolStripMenuItem.Add_Click{Start-Process powershell_ise}
+$RemoteDesktopConnectionToolStripMenuItem.Add_click{Start-Process mstsc}
+$ShutdownGUIToolStripMenuItem.Add_Click{Start-Process shutdown /i}
+$InternetExplorerToolStripMenuItem.Add_Click{Start-Process iexplore}
+$NotepadToolStripMenuItem.Add_Click{Start-Process notepad}
+$WordPadToolStripMenuItem.Add_Click{Start-Process WordPad}
+$SysInternalsToolStripMenuItem.Add_Click{Start-Process https://live.sysinternals.com}
+$GenerateAPasswordToolStripMenuItem.Add_Click{$minLength = 10;$maxLength = 16;$length = Get-Random -Minimum $minLength -Maximum $maxLength;$nonAlphaChars = 5;$password = [System.Web.Security.Membership]::GeneratePassword($length, $nonAlphaChars);$password;Write-Host $password;[System.Windows.Forms.MessageBox]::Show("See Console: $($password)","$($FormLWA.text)",1)}
 
 #Get Variables
 $LocalHostName = $env:computername
