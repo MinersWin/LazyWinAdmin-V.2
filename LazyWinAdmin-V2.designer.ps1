@@ -67,6 +67,16 @@ $FormLWA = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$ButtonCheck = $null
 [System.Windows.Forms.ComboBox]$ComboBoxComputerName = $null
 [System.Windows.Forms.Label]$LabelComputerName = $null
+[System.Windows.Forms.TabControl]$TabControl = $null
+[System.Windows.Forms.TabPage]$TabPageGeneral = $null
+[System.Windows.Forms.TabPage]$TabPageComputerandOperatingSystem = $null
+[System.Windows.Forms.TabPage]$TabPageNetwork = $null
+[System.Windows.Forms.TabPage]$TabPageProcesses = $null
+[System.Windows.Forms.TabPage]$TabPageServices = $null
+[System.Windows.Forms.TabPage]$TabPageDiskDrives = $null
+[System.Windows.Forms.TabPage]$TabPageShares = $null
+[System.Windows.Forms.TabPage]$TabPageEventLog = $null
+[System.Windows.Forms.TabPage]$TabPageExternalTools = $null
 function InitializeComponent
 {
 $resources = . (Join-Path $PSScriptRoot 'LazyWinAdmin-V2.resources.ps1')
@@ -105,8 +115,23 @@ $HostsFileOpenToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.Too
 $HostsFileGetContentToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $NetStatToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $OtherWindowsAppsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AddRemoveProgramsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AdministrativeToolsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$AuthorizationManagerToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$CertificateManagerToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ComponentServiceToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$DiskManagementToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$GroupPolicyEditorlocalToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$LocalSecuritySettingsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$LocalUsersAndGroupsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$NetworkConnectionsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$PerformanceMonitorToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$SharedFoldersToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ScheduledTasksToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $ScriptsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $AboutToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ExitToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
 $LabelUptime = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelOS = (New-Object -TypeName System.Windows.Forms.Label)
@@ -123,23 +148,19 @@ $Label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
 $ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
 $LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
-$ExitToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$AddRemoveProgramsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$AddRemoveProgramsWindowsFeaturesToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$AdministrativeToolsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$AuthorizationManagerToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$CertificateManagerToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$ComponentServiceToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$DiskManagementToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$GroupPolicyEditorlocalToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$LocalSecuritySettingsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$LocalUsersAndGroupsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$NetworkConnectionsToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$PerformanceMonitorToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$SharedFoldersToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$ScheduledTasksToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$TabControl = (New-Object -TypeName System.Windows.Forms.TabControl)
+$TabPageGeneral = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageComputerandOperatingSystem = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageNetwork = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageProcesses = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageServices = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageDiskDrives = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageShares = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageEventLog = (New-Object -TypeName System.Windows.Forms.TabPage)
+$TabPageExternalTools = (New-Object -TypeName System.Windows.Forms.TabPage)
 $MenuStrip1.SuspendLayout()
 $Panel1.SuspendLayout()
+$TabControl.SuspendLayout()
 $FormLWA.SuspendLayout()
 #
 #MenuStrip1
@@ -370,6 +391,91 @@ $OtherWindowsAppsToolStripMenuItem.Name = [System.String]'OtherWindowsAppsToolSt
 $OtherWindowsAppsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]320,[System.Int32]24))
 $OtherWindowsAppsToolStripMenuItem.Text = [System.String]'Other Windows Apps'
 #
+#AddRemoveProgramsToolStripMenuItem
+#
+$AddRemoveProgramsToolStripMenuItem.Name = [System.String]'AddRemoveProgramsToolStripMenuItem'
+$AddRemoveProgramsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AddRemoveProgramsToolStripMenuItem.Text = [System.String]'Add/Remove Programs'
+#
+#AddRemoveProgramsWindowsFeaturesToolStripMenuItem
+#
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Name = [System.String]'AddRemoveProgramsWindowsFeaturesToolStripMenuItem'
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Text = [System.String]'Add/Remove Programs - Windows Features'
+#
+#AdministrativeToolsToolStripMenuItem
+#
+$AdministrativeToolsToolStripMenuItem.Name = [System.String]'AdministrativeToolsToolStripMenuItem'
+$AdministrativeToolsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AdministrativeToolsToolStripMenuItem.Text = [System.String]'Administrative Tools'
+#
+#AuthorizationManagerToolStripMenuItem
+#
+$AuthorizationManagerToolStripMenuItem.Name = [System.String]'AuthorizationManagerToolStripMenuItem'
+$AuthorizationManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$AuthorizationManagerToolStripMenuItem.Text = [System.String]'Authorization Manager'
+#
+#CertificateManagerToolStripMenuItem
+#
+$CertificateManagerToolStripMenuItem.Name = [System.String]'CertificateManagerToolStripMenuItem'
+$CertificateManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$CertificateManagerToolStripMenuItem.Text = [System.String]'Certificate Manager'
+$CertificateManagerToolStripMenuItem.add_Click($VertificateManagerToolStripMenuItem_Click)
+#
+#ComponentServiceToolStripMenuItem
+#
+$ComponentServiceToolStripMenuItem.Name = [System.String]'ComponentServiceToolStripMenuItem'
+$ComponentServiceToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$ComponentServiceToolStripMenuItem.Text = [System.String]'Component Service'
+#
+#DiskManagementToolStripMenuItem
+#
+$DiskManagementToolStripMenuItem.Name = [System.String]'DiskManagementToolStripMenuItem'
+$DiskManagementToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$DiskManagementToolStripMenuItem.Text = [System.String]'Disk Management'
+#
+#GroupPolicyEditorlocalToolStripMenuItem
+#
+$GroupPolicyEditorlocalToolStripMenuItem.Name = [System.String]'GroupPolicyEditorlocalToolStripMenuItem'
+$GroupPolicyEditorlocalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$GroupPolicyEditorlocalToolStripMenuItem.Text = [System.String]'Group Policy Editor (local)'
+#
+#LocalSecuritySettingsToolStripMenuItem
+#
+$LocalSecuritySettingsToolStripMenuItem.Name = [System.String]'LocalSecuritySettingsToolStripMenuItem'
+$LocalSecuritySettingsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$LocalSecuritySettingsToolStripMenuItem.Text = [System.String]'Local Security Settings'
+#
+#LocalUsersAndGroupsToolStripMenuItem
+#
+$LocalUsersAndGroupsToolStripMenuItem.Name = [System.String]'LocalUsersAndGroupsToolStripMenuItem'
+$LocalUsersAndGroupsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$LocalUsersAndGroupsToolStripMenuItem.Text = [System.String]'Local Users and Groups'
+#
+#NetworkConnectionsToolStripMenuItem
+#
+$NetworkConnectionsToolStripMenuItem.Name = [System.String]'NetworkConnectionsToolStripMenuItem'
+$NetworkConnectionsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$NetworkConnectionsToolStripMenuItem.Text = [System.String]'Network Connections'
+#
+#PerformanceMonitorToolStripMenuItem
+#
+$PerformanceMonitorToolStripMenuItem.Name = [System.String]'PerformanceMonitorToolStripMenuItem'
+$PerformanceMonitorToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$PerformanceMonitorToolStripMenuItem.Text = [System.String]'Performance Monitor'
+#
+#SharedFoldersToolStripMenuItem
+#
+$SharedFoldersToolStripMenuItem.Name = [System.String]'SharedFoldersToolStripMenuItem'
+$SharedFoldersToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$SharedFoldersToolStripMenuItem.Text = [System.String]'Shared Folders'
+#
+#ScheduledTasksToolStripMenuItem
+#
+$ScheduledTasksToolStripMenuItem.Name = [System.String]'ScheduledTasksToolStripMenuItem'
+$ScheduledTasksToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
+$ScheduledTasksToolStripMenuItem.Text = [System.String]'Scheduled Tasks'
+#
 #ScriptsToolStripMenuItem
 #
 $ScriptsToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ScriptsToolStripMenuItem.Image')
@@ -383,6 +489,13 @@ $AboutToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'AboutToolStri
 $AboutToolStripMenuItem.Name = [System.String]'AboutToolStripMenuItem'
 $AboutToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]24))
 $AboutToolStripMenuItem.Text = [System.String]'About'
+#
+#ExitToolStripMenuItem
+#
+$ExitToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ExitToolStripMenuItem.Image')
+$ExitToolStripMenuItem.Name = [System.String]'ExitToolStripMenuItem'
+$ExitToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]61,[System.Int32]24))
+$ExitToolStripMenuItem.Text = [System.String]'Exit'
 #
 #Panel1
 #
@@ -554,110 +667,121 @@ $LabelComputerName.Text = [System.String]'ComputerName'
 $LabelComputerName.UseCompatibleTextRendering = $true
 $LabelComputerName.add_Click($Label1_Click)
 #
-#ExitToolStripMenuItem
+#TabControl
 #
-$ExitToolStripMenuItem.Image = ([System.Drawing.Image]$resources.'ExitToolStripMenuItem.Image')
-$ExitToolStripMenuItem.Name = [System.String]'ExitToolStripMenuItem'
-$ExitToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]61,[System.Int32]24))
-$ExitToolStripMenuItem.Text = [System.String]'Exit'
+$TabControl.Controls.Add($TabPageGeneral)
+$TabControl.Controls.Add($TabPageComputerandOperatingSystem)
+$TabControl.Controls.Add($TabPageNetwork)
+$TabControl.Controls.Add($TabPageProcesses)
+$TabControl.Controls.Add($TabPageServices)
+$TabControl.Controls.Add($TabPageDiskDrives)
+$TabControl.Controls.Add($TabPageShares)
+$TabControl.Controls.Add($TabPageEventLog)
+$TabControl.Controls.Add($TabPageExternalTools)
+$TabControl.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]81))
+$TabControl.Multiline = $true
+$TabControl.Name = [System.String]'TabControl'
+$TabControl.SelectedIndex = [System.Int32]0
+$TabControl.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]601))
+$TabControl.TabIndex = [System.Int32]2
 #
-#AddRemoveProgramsToolStripMenuItem
+#TabPageGeneral
 #
-$AddRemoveProgramsToolStripMenuItem.Name = [System.String]'AddRemoveProgramsToolStripMenuItem'
-$AddRemoveProgramsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$AddRemoveProgramsToolStripMenuItem.Text = [System.String]'Add/Remove Programs'
+$TabPageGeneral.BackColor = [System.Drawing.SystemColors]::Control
+$TabPageGeneral.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]26))
+$TabPageGeneral.Name = [System.String]'TabPageGeneral'
+$TabPageGeneral.Padding = (New-Object -TypeName System.Windows.Forms.Padding -ArgumentList @([System.Int32]3))
+$TabPageGeneral.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]571))
+$TabPageGeneral.TabIndex = [System.Int32]0
+$TabPageGeneral.Text = [System.String]'General'
 #
-#AddRemoveProgramsWindowsFeaturesToolStripMenuItem
+#TabPageComputerandOperatingSystem
 #
-$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Name = [System.String]'AddRemoveProgramsWindowsFeaturesToolStripMenuItem'
-$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$AddRemoveProgramsWindowsFeaturesToolStripMenuItem.Text = [System.String]'Add/Remove Programs - Windows Features'
+$TabPageComputerandOperatingSystem.BackColor = [System.Drawing.SystemColors]::Control
+$TabPageComputerandOperatingSystem.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageComputerandOperatingSystem.Name = [System.String]'TabPageComputerandOperatingSystem'
+$TabPageComputerandOperatingSystem.Padding = (New-Object -TypeName System.Windows.Forms.Padding -ArgumentList @([System.Int32]3))
+$TabPageComputerandOperatingSystem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageComputerandOperatingSystem.TabIndex = [System.Int32]1
+$TabPageComputerandOperatingSystem.Text = [System.String]'Computer & Operating System'
 #
-#AdministrativeToolsToolStripMenuItem
+#TabPageNetwork
 #
-$AdministrativeToolsToolStripMenuItem.Name = [System.String]'AdministrativeToolsToolStripMenuItem'
-$AdministrativeToolsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$AdministrativeToolsToolStripMenuItem.Text = [System.String]'Administrative Tools'
+$TabPageNetwork.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageNetwork.Name = [System.String]'TabPageNetwork'
+$TabPageNetwork.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageNetwork.TabIndex = [System.Int32]2
+$TabPageNetwork.Text = [System.String]'Network'
+$TabPageNetwork.UseVisualStyleBackColor = $true
 #
-#AuthorizationManagerToolStripMenuItem
+#TabPageProcesses
 #
-$AuthorizationManagerToolStripMenuItem.Name = [System.String]'AuthorizationManagerToolStripMenuItem'
-$AuthorizationManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$AuthorizationManagerToolStripMenuItem.Text = [System.String]'Authorization Manager'
+$TabPageProcesses.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageProcesses.Name = [System.String]'TabPageProcesses'
+$TabPageProcesses.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageProcesses.TabIndex = [System.Int32]3
+$TabPageProcesses.Text = [System.String]'Processes'
+$TabPageProcesses.UseVisualStyleBackColor = $true
 #
-#CertificateManagerToolStripMenuItem
+#TabPageServices
 #
-$CertificateManagerToolStripMenuItem.Name = [System.String]'CertificateManagerToolStripMenuItem'
-$CertificateManagerToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$CertificateManagerToolStripMenuItem.Text = [System.String]'Certificate Manager'
-$CertificateManagerToolStripMenuItem.add_Click($VertificateManagerToolStripMenuItem_Click)
+$TabPageServices.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageServices.Name = [System.String]'TabPageServices'
+$TabPageServices.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageServices.TabIndex = [System.Int32]4
+$TabPageServices.Text = [System.String]'Services'
+$TabPageServices.UseVisualStyleBackColor = $true
 #
-#ComponentServiceToolStripMenuItem
+#TabPageDiskDrives
 #
-$ComponentServiceToolStripMenuItem.Name = [System.String]'ComponentServiceToolStripMenuItem'
-$ComponentServiceToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$ComponentServiceToolStripMenuItem.Text = [System.String]'Component Service'
+$TabPageDiskDrives.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageDiskDrives.Name = [System.String]'TabPageDiskDrives'
+$TabPageDiskDrives.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageDiskDrives.TabIndex = [System.Int32]5
+$TabPageDiskDrives.Text = [System.String]'Disk Drives'
+$TabPageDiskDrives.UseVisualStyleBackColor = $true
 #
-#DiskManagementToolStripMenuItem
+#TabPageShares
 #
-$DiskManagementToolStripMenuItem.Name = [System.String]'DiskManagementToolStripMenuItem'
-$DiskManagementToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$DiskManagementToolStripMenuItem.Text = [System.String]'Disk Management'
+$TabPageShares.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageShares.Name = [System.String]'TabPageShares'
+$TabPageShares.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageShares.TabIndex = [System.Int32]6
+$TabPageShares.Text = [System.String]'Shares'
+$TabPageShares.UseVisualStyleBackColor = $true
 #
-#GroupPolicyEditorlocalToolStripMenuItem
+#TabPageEventLog
 #
-$GroupPolicyEditorlocalToolStripMenuItem.Name = [System.String]'GroupPolicyEditorlocalToolStripMenuItem'
-$GroupPolicyEditorlocalToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$GroupPolicyEditorlocalToolStripMenuItem.Text = [System.String]'Group Policy Editor (local)'
+$TabPageEventLog.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageEventLog.Name = [System.String]'TabPageEventLog'
+$TabPageEventLog.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageEventLog.TabIndex = [System.Int32]7
+$TabPageEventLog.Text = [System.String]'Event Log'
+$TabPageEventLog.UseVisualStyleBackColor = $true
 #
-#LocalSecuritySettingsToolStripMenuItem
+#TabPageExternalTools
 #
-$LocalSecuritySettingsToolStripMenuItem.Name = [System.String]'LocalSecuritySettingsToolStripMenuItem'
-$LocalSecuritySettingsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$LocalSecuritySettingsToolStripMenuItem.Text = [System.String]'Local Security Settings'
-#
-#LocalUsersAndGroupsToolStripMenuItem
-#
-$LocalUsersAndGroupsToolStripMenuItem.Name = [System.String]'LocalUsersAndGroupsToolStripMenuItem'
-$LocalUsersAndGroupsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$LocalUsersAndGroupsToolStripMenuItem.Text = [System.String]'Local Users and Groups'
-#
-#NetworkConnectionsToolStripMenuItem
-#
-$NetworkConnectionsToolStripMenuItem.Name = [System.String]'NetworkConnectionsToolStripMenuItem'
-$NetworkConnectionsToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$NetworkConnectionsToolStripMenuItem.Text = [System.String]'Network Connections'
-#
-#PerformanceMonitorToolStripMenuItem
-#
-$PerformanceMonitorToolStripMenuItem.Name = [System.String]'PerformanceMonitorToolStripMenuItem'
-$PerformanceMonitorToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$PerformanceMonitorToolStripMenuItem.Text = [System.String]'Performance Monitor'
-#
-#SharedFoldersToolStripMenuItem
-#
-$SharedFoldersToolStripMenuItem.Name = [System.String]'SharedFoldersToolStripMenuItem'
-$SharedFoldersToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$SharedFoldersToolStripMenuItem.Text = [System.String]'Shared Folders'
-#
-#ScheduledTasksToolStripMenuItem
-#
-$ScheduledTasksToolStripMenuItem.Name = [System.String]'ScheduledTasksToolStripMenuItem'
-$ScheduledTasksToolStripMenuItem.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]367,[System.Int32]24))
-$ScheduledTasksToolStripMenuItem.Text = [System.String]'Scheduled Tasks'
+$TabPageExternalTools.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]25))
+$TabPageExternalTools.Name = [System.String]'TabPageExternalTools'
+$TabPageExternalTools.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]572))
+$TabPageExternalTools.TabIndex = [System.Int32]8
+$TabPageExternalTools.Text = [System.String]'ExternalTools'
+$TabPageExternalTools.UseVisualStyleBackColor = $true
 #
 #FormLWA
 #
+$FormLWA.BackColor = [System.Drawing.SystemColors]::Control
 $FormLWA.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1072,[System.Int32]681))
+$FormLWA.Controls.Add($TabControl)
 $FormLWA.Controls.Add($Panel1)
 $FormLWA.Controls.Add($MenuStrip1)
 $FormLWA.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
 $FormLWA.MainMenuStrip = $MenuStrip1
-$FormLWA.Name = [System.String]'FormLWA'
 $FormLWA.Text = [System.String]'Windows Lazy Admin 2.0'
 $MenuStrip1.ResumeLayout($false)
 $MenuStrip1.PerformLayout()
 $Panel1.ResumeLayout($false)
+$TabControl.ResumeLayout($false)
 $FormLWA.ResumeLayout($false)
 $FormLWA.PerformLayout()
 Add-Member -InputObject $FormLWA -Name base -Value $base -MemberType NoteProperty
@@ -729,5 +853,15 @@ Add-Member -InputObject $FormLWA -Name Label1 -Value $Label1 -MemberType NotePro
 Add-Member -InputObject $FormLWA -Name ButtonCheck -Value $ButtonCheck -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name ComboBoxComputerName -Value $ComboBoxComputerName -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name LabelComputerName -Value $LabelComputerName -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabControl -Value $TabControl -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageGeneral -Value $TabPageGeneral -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageComputerandOperatingSystem -Value $TabPageComputerandOperatingSystem -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageNetwork -Value $TabPageNetwork -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageProcesses -Value $TabPageProcesses -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageServices -Value $TabPageServices -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageDiskDrives -Value $TabPageDiskDrives -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageShares -Value $TabPageShares -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageEventLog -Value $TabPageEventLog -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name TabPageExternalTools -Value $TabPageExternalTools -MemberType NoteProperty
 }
 . InitializeComponent
