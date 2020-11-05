@@ -49,8 +49,10 @@ $WordPadToolStripMenuItem.Add_Click{Start-Process WordPad}
 $SysInternalsToolStripMenuItem.Add_Click{Start-Process https://live.sysinternals.com}
 $GenerateAPasswordToolStripMenuItem.Add_Click{$minLength = 10;$maxLength = 16;$length = Get-Random -Minimum $minLength -Maximum $maxLength;$nonAlphaChars = 5;$password = [System.Web.Security.Membership]::GeneratePassword($length, $nonAlphaChars);$password;Write-Host $password;[System.Windows.Forms.MessageBox]::Show("See Console: $($password)","$($FormLWA.text)",1)}
 
+$ExitToolStripMenuItem.Add_Click{$FormLWA.Close()}
 #Get Variables
 $LocalHostName = $env:computername
+
 
 #Insert Infos
 $ComboBoxComputerName.Text = $LocalHostName
