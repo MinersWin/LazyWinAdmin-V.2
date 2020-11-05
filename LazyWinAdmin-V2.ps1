@@ -52,11 +52,16 @@ $GenerateAPasswordToolStripMenuItem.Add_Click{$minLength = 10;$maxLength = 16;$l
 $ExitToolStripMenuItem.Add_Click{$FormLWA.Close()}
 #Get Variables
 $LocalHostName = $env:computername
-
+$HostArray = Get-ADComputer -Filter * | Select-Object Name
 
 #Insert Infos
 $ComboBoxComputerName.Text = $LocalHostName
-
+foreach ($item in $HostArray){
+    $ComboBoxComputerName.Items.Add($item.Name)
+}
+$ComboBoxComputerName.AutoCompleteSource = 'ListItems'
+$ComboBoxComputerName.FormattingEnabled = $True
+$ComboBoxComputerName.AutoCompleteMode = "SuggestAppend"
 #Funktions
 function CheckHostname{
     $SelectedHostName = $ComboBoxComputerName.Text
