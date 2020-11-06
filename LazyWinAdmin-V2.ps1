@@ -31,7 +31,7 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName 'System.Web'
 . (Join-Path $PSScriptRoot 'LazyWinAdmin-V2.designer.ps1')
 ##########################################
-############################Bind Functions
+############ Bind Functions ##############
 ##########################################
 #Button
 $ButtonCheck.Add_Click{(CheckHostname)}
@@ -50,22 +50,31 @@ $SysInternalsToolStripMenuItem.Add_Click{Start-Process https://live.sysinternals
 $GenerateAPasswordToolStripMenuItem.Add_Click{$minLength = 10;$maxLength = 16;$length = Get-Random -Minimum $minLength -Maximum $maxLength;$nonAlphaChars = 5;$password = [System.Web.Security.Membership]::GeneratePassword($length, $nonAlphaChars);$password;Write-Host $password;[System.Windows.Forms.MessageBox]::Show("See Console: $($password)","$($FormLWA.text)",1)}
 
 $ExitToolStripMenuItem.Add_Click{$FormLWA.Close()}
-#Get Variables
+
+#########################################
+########### Get Variables ###############
+#########################################
 $LocalHostName = $env:computername
 $HostArray = Get-ADComputer -Filter * | Select-Object Name
 
-#Insert Infos
+#########################################
+########### Insert Infos ################
+#########################################
+
+#
 $ComboBoxComputerName.Text = $LocalHostName
 foreach ($item in $HostArray){
-    $ComboBoxComputerName.Items.Add($item.Name)
+    [void]$ComboBoxComputerName.Items.Add($item.Name)
 }
 $ComboBoxComputerName.AutoCompleteSource = 'ListItems'
 $ComboBoxComputerName.FormattingEnabled = $True
 $ComboBoxComputerName.AutoCompleteMode = "SuggestAppend"
-#Funktions
+
+########################################
+############ Funktions #################
+########################################
 function CheckHostname{
     $SelectedHostName = $ComboBoxComputerName.Text
-
     
 }
 $FormLWA.ShowDialog()
