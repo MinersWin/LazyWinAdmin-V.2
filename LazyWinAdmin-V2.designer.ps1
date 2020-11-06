@@ -53,16 +53,16 @@ $FormLWA = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Panel]$Panel1 = $null
 [System.Windows.Forms.Label]$LabelUptime = $null
 [System.Windows.Forms.Label]$LabelOS = $null
-[System.Windows.Forms.Label]$Label8 = $null
+[System.Windows.Forms.Label]$LabelPSRemoting = $null
 [System.Windows.Forms.Label]$LabelShure = $null
 [System.Windows.Forms.Label]$LabelPing = $null
 [System.Windows.Forms.Label]$LabelPermission = $null
-[System.Windows.Forms.Label]$Label6 = $null
-[System.Windows.Forms.Label]$Label5 = $null
-[System.Windows.Forms.Label]$Label4 = $null
-[System.Windows.Forms.Label]$Label3 = $null
-[System.Windows.Forms.Label]$Label2 = $null
-[System.Windows.Forms.Label]$Label1 = $null
+[System.Windows.Forms.Label]$LabelDefinitionUptime = $null
+[System.Windows.Forms.Label]$LabelDefinitionOS = $null
+[System.Windows.Forms.Label]$LabelDefinitionPSRemoting = $null
+[System.Windows.Forms.Label]$LabelDefinitionRDP = $null
+[System.Windows.Forms.Label]$LabelDefinitionPermission = $null
+[System.Windows.Forms.Label]$LabelDefinitionPing = $null
 [System.Windows.Forms.Button]$ButtonCheck = $null
 [System.Windows.Forms.ComboBox]$ComboBoxComputerName = $null
 [System.Windows.Forms.Label]$LabelComputerName = $null
@@ -145,21 +145,33 @@ $ExitToolStripMenuItem = (New-Object -TypeName System.Windows.Forms.ToolStripMen
 $Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
 $LabelUptime = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelOS = (New-Object -TypeName System.Windows.Forms.Label)
-$Label8 = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelPSRemoting = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelShure = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelPing = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelPermission = (New-Object -TypeName System.Windows.Forms.Label)
-$Label6 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label5 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label4 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label3 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label2 = (New-Object -TypeName System.Windows.Forms.Label)
-$Label1 = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelDefinitionUptime = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelDefinitionOS = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelDefinitionPSRemoting = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelDefinitionRDP = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelDefinitionPermission = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelDefinitionPing = (New-Object -TypeName System.Windows.Forms.Label)
 $ButtonCheck = (New-Object -TypeName System.Windows.Forms.Button)
 $ComboBoxComputerName = (New-Object -TypeName System.Windows.Forms.ComboBox)
 $LabelComputerName = (New-Object -TypeName System.Windows.Forms.Label)
 $TabControl = (New-Object -TypeName System.Windows.Forms.TabControl)
 $TabPageGeneral = (New-Object -TypeName System.Windows.Forms.TabPage)
+$PanelGeneral = (New-Object -TypeName System.Windows.Forms.Panel)
+$ButtonGeneralShutdown = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralRestart = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralSendCommand = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralApps = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralGPUpdate = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralC = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralIPConfig = (New-Object -TypeName System.Windows.Forms.Button)
+$ButonGeneralRemoteAssistance = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralPowerShell = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralRDP = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGeneralPing = (New-Object -TypeName System.Windows.Forms.Button)
 $TabPageComputerandOperatingSystem = (New-Object -TypeName System.Windows.Forms.TabPage)
 $TabPageNetwork = (New-Object -TypeName System.Windows.Forms.TabPage)
 $TabPageProcesses = (New-Object -TypeName System.Windows.Forms.TabPage)
@@ -168,18 +180,6 @@ $TabPageDiskDrives = (New-Object -TypeName System.Windows.Forms.TabPage)
 $TabPageShares = (New-Object -TypeName System.Windows.Forms.TabPage)
 $TabPageEventLog = (New-Object -TypeName System.Windows.Forms.TabPage)
 $TabPageExternalTools = (New-Object -TypeName System.Windows.Forms.TabPage)
-$PanelGeneral = (New-Object -TypeName System.Windows.Forms.Panel)
-$ButtonGeneralPing = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralRDP = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralPowerShell = (New-Object -TypeName System.Windows.Forms.Button)
-$ButonGeneralRemoteAssistance = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralIPConfig = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralC = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralGPUpdate = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralApps = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralSendCommand = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralRestart = (New-Object -TypeName System.Windows.Forms.Button)
-$ButtonGeneralShutdown = (New-Object -TypeName System.Windows.Forms.Button)
 $MenuStrip1.SuspendLayout()
 $Panel1.SuspendLayout()
 $TabControl.SuspendLayout()
@@ -531,16 +531,16 @@ $ExitToolStripMenuItem.Text = [System.String]'Exit'
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 $Panel1.Controls.Add($LabelUptime)
 $Panel1.Controls.Add($LabelOS)
-$Panel1.Controls.Add($Label8)
+$Panel1.Controls.Add($LabelPSRemoting)
 $Panel1.Controls.Add($LabelShure)
 $Panel1.Controls.Add($LabelPing)
 $Panel1.Controls.Add($LabelPermission)
-$Panel1.Controls.Add($Label6)
-$Panel1.Controls.Add($Label5)
-$Panel1.Controls.Add($Label4)
-$Panel1.Controls.Add($Label3)
-$Panel1.Controls.Add($Label2)
-$Panel1.Controls.Add($Label1)
+$Panel1.Controls.Add($LabelDefinitionUptime)
+$Panel1.Controls.Add($LabelDefinitionOS)
+$Panel1.Controls.Add($LabelDefinitionPSRemoting)
+$Panel1.Controls.Add($LabelDefinitionRDP)
+$Panel1.Controls.Add($LabelDefinitionPermission)
+$Panel1.Controls.Add($LabelDefinitionPing)
 $Panel1.Controls.Add($ButtonCheck)
 $Panel1.Controls.Add($ComboBoxComputerName)
 $Panel1.Controls.Add($LabelComputerName)
@@ -567,14 +567,14 @@ $LabelOS.TabIndex = [System.Int32]15
 $LabelOS.Text = [System.String]'IThinkWindows'
 $LabelOS.UseCompatibleTextRendering = $true
 #
-#Label8
+#LabelPSRemoting
 #
-$Label8.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]612,[System.Int32]27))
-$Label8.Name = [System.String]'Label8'
-$Label8.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
-$Label8.TabIndex = [System.Int32]14
-$Label8.Text = [System.String]'Label8'
-$Label8.UseCompatibleTextRendering = $true
+$LabelPSRemoting.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]612,[System.Int32]27))
+$LabelPSRemoting.Name = [System.String]'LabelPSRemoting'
+$LabelPSRemoting.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$LabelPSRemoting.TabIndex = [System.Int32]14
+$LabelPSRemoting.Text = [System.String]'POWASHÄL'
+$LabelPSRemoting.UseCompatibleTextRendering = $true
 #
 #LabelShure
 #
@@ -603,67 +603,67 @@ $LabelPermission.TabIndex = [System.Int32]11
 $LabelPermission.Text = [System.String]'Shure'
 $LabelPermission.UseCompatibleTextRendering = $true
 #
-#Label6
+#LabelDefinitionUptime
 #
-$Label6.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label6.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]718,[System.Int32]24))
-$Label6.Name = [System.String]'Label6'
-$Label6.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
-$Label6.TabIndex = [System.Int32]10
-$Label6.Text = [System.String]'Uptime:'
-$Label6.UseCompatibleTextRendering = $true
-$Label6.add_Click($Label6_Click)
+$LabelDefinitionUptime.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelDefinitionUptime.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]718,[System.Int32]24))
+$LabelDefinitionUptime.Name = [System.String]'LabelDefinitionUptime'
+$LabelDefinitionUptime.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
+$LabelDefinitionUptime.TabIndex = [System.Int32]10
+$LabelDefinitionUptime.Text = [System.String]'Uptime:'
+$LabelDefinitionUptime.UseCompatibleTextRendering = $true
+$LabelDefinitionUptime.add_Click($Label6_Click)
 #
-#Label5
+#LabelDefinitionOS
 #
-$Label5.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label5.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]718,[System.Int32]3))
-$Label5.Name = [System.String]'Label5'
-$Label5.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
-$Label5.TabIndex = [System.Int32]9
-$Label5.Text = [System.String]'OS:'
-$Label5.UseCompatibleTextRendering = $true
-$Label5.add_Click($Label5_Click)
+$LabelDefinitionOS.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelDefinitionOS.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]718,[System.Int32]3))
+$LabelDefinitionOS.Name = [System.String]'LabelDefinitionOS'
+$LabelDefinitionOS.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]65,[System.Int32]23))
+$LabelDefinitionOS.TabIndex = [System.Int32]9
+$LabelDefinitionOS.Text = [System.String]'OS:'
+$LabelDefinitionOS.UseCompatibleTextRendering = $true
+$LabelDefinitionOS.add_Click($Label5_Click)
 #
-#Label4
+#LabelDefinitionPSRemoting
 #
-$Label4.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label4.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]513,[System.Int32]27))
-$Label4.Name = [System.String]'Label4'
-$Label4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
-$Label4.TabIndex = [System.Int32]8
-$Label4.Text = [System.String]'PSRemoting:'
-$Label4.UseCompatibleTextRendering = $true
+$LabelDefinitionPSRemoting.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelDefinitionPSRemoting.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]513,[System.Int32]27))
+$LabelDefinitionPSRemoting.Name = [System.String]'LabelDefinitionPSRemoting'
+$LabelDefinitionPSRemoting.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
+$LabelDefinitionPSRemoting.TabIndex = [System.Int32]8
+$LabelDefinitionPSRemoting.Text = [System.String]'PSRemoting:'
+$LabelDefinitionPSRemoting.UseCompatibleTextRendering = $true
 #
-#Label3
+#LabelDefinitionRDP
 #
-$Label3.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label3.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]513,[System.Int32]3))
-$Label3.Name = [System.String]'Label3'
-$Label3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
-$Label3.TabIndex = [System.Int32]7
-$Label3.Text = [System.String]'RDP:'
-$Label3.UseCompatibleTextRendering = $true
+$LabelDefinitionRDP.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelDefinitionRDP.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]513,[System.Int32]3))
+$LabelDefinitionRDP.Name = [System.String]'LabelDefinitionRDP'
+$LabelDefinitionRDP.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]93,[System.Int32]23))
+$LabelDefinitionRDP.TabIndex = [System.Int32]7
+$LabelDefinitionRDP.Text = [System.String]'RDP:'
+$LabelDefinitionRDP.UseCompatibleTextRendering = $true
 #
-#Label2
+#LabelDefinitionPermission
 #
-$Label2.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]24))
-$Label2.Name = [System.String]'Label2'
-$Label2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]23))
-$Label2.TabIndex = [System.Int32]6
-$Label2.Text = [System.String]'Permission:'
-$Label2.UseCompatibleTextRendering = $true
+$LabelDefinitionPermission.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelDefinitionPermission.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]24))
+$LabelDefinitionPermission.Name = [System.String]'LabelDefinitionPermission'
+$LabelDefinitionPermission.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]23))
+$LabelDefinitionPermission.TabIndex = [System.Int32]6
+$LabelDefinitionPermission.Text = [System.String]'Permission:'
+$LabelDefinitionPermission.UseCompatibleTextRendering = $true
 #
-#Label1
+#LabelDefinitionPing
 #
-$Label1.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$Label1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]2))
-$Label1.Name = [System.String]'Label1'
-$Label1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]20))
-$Label1.TabIndex = [System.Int32]5
-$Label1.Text = [System.String]'Ping:'
-$Label1.UseCompatibleTextRendering = $true
+$LabelDefinitionPing.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]7.8,[System.Drawing.FontStyle]::Underline,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelDefinitionPing.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]306,[System.Int32]2))
+$LabelDefinitionPing.Name = [System.String]'LabelDefinitionPing'
+$LabelDefinitionPing.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]78,[System.Int32]20))
+$LabelDefinitionPing.TabIndex = [System.Int32]5
+$LabelDefinitionPing.Text = [System.String]'Ping:'
+$LabelDefinitionPing.UseCompatibleTextRendering = $true
 #
 #ButtonCheck
 #
@@ -724,6 +724,167 @@ $TabPageGeneral.Padding = (New-Object -TypeName System.Windows.Forms.Padding -Ar
 $TabPageGeneral.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1064,[System.Int32]571))
 $TabPageGeneral.TabIndex = [System.Int32]0
 $TabPageGeneral.Text = [System.String]'General'
+#
+#PanelGeneral
+#
+$PanelGeneral.Controls.Add($ButtonGeneralShutdown)
+$PanelGeneral.Controls.Add($ButtonGeneralRestart)
+$PanelGeneral.Controls.Add($ButtonGeneralSendCommand)
+$PanelGeneral.Controls.Add($ButtonGeneralApps)
+$PanelGeneral.Controls.Add($ButtonGeneralGPUpdate)
+$PanelGeneral.Controls.Add($ButtonGeneralC)
+$PanelGeneral.Controls.Add($ButtonGeneralIPConfig)
+$PanelGeneral.Controls.Add($ButonGeneralRemoteAssistance)
+$PanelGeneral.Controls.Add($ButtonGeneralPowerShell)
+$PanelGeneral.Controls.Add($ButtonGeneralRDP)
+$PanelGeneral.Controls.Add($ButtonGeneralPing)
+$PanelGeneral.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]3))
+$PanelGeneral.Name = [System.String]'PanelGeneral'
+$PanelGeneral.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1068,[System.Int32]568))
+$PanelGeneral.TabIndex = [System.Int32]0
+#
+#ButtonGeneralShutdown
+#
+$ButtonGeneralShutdown.Image = ([System.Drawing.Image]$resources.'ButtonGeneralShutdown.Image')
+$ButtonGeneralShutdown.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralShutdown.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]968,[System.Int32]3))
+$ButtonGeneralShutdown.Name = [System.String]'ButtonGeneralShutdown'
+$ButtonGeneralShutdown.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralShutdown.TabIndex = [System.Int32]10
+$ButtonGeneralShutdown.Text = [System.String]'Shutdown'
+$ButtonGeneralShutdown.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralShutdown.UseCompatibleTextRendering = $true
+$ButtonGeneralShutdown.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralRestart
+#
+$ButtonGeneralRestart.Image = ([System.Drawing.Image]$resources.'ButtonGeneralRestart.Image')
+$ButtonGeneralRestart.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralRestart.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]870,[System.Int32]3))
+$ButtonGeneralRestart.Name = [System.String]'ButtonGeneralRestart'
+$ButtonGeneralRestart.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralRestart.TabIndex = [System.Int32]9
+$ButtonGeneralRestart.Text = [System.String]'Restart'
+$ButtonGeneralRestart.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralRestart.UseCompatibleTextRendering = $true
+$ButtonGeneralRestart.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralSendCommand
+#
+$ButtonGeneralSendCommand.Image = ([System.Drawing.Image]$resources.'ButtonGeneralSendCommand.Image')
+$ButtonGeneralSendCommand.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralSendCommand.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]774,[System.Int32]3))
+$ButtonGeneralSendCommand.Name = [System.String]'ButtonGeneralSendCommand'
+$ButtonGeneralSendCommand.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralSendCommand.TabIndex = [System.Int32]8
+$ButtonGeneralSendCommand.Text = [System.String]'Send Command'
+$ButtonGeneralSendCommand.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralSendCommand.UseCompatibleTextRendering = $true
+$ButtonGeneralSendCommand.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralApps
+#
+$ButtonGeneralApps.Image = ([System.Drawing.Image]$resources.'ButtonGeneralApps.Image')
+$ButtonGeneralApps.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralApps.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]678,[System.Int32]3))
+$ButtonGeneralApps.Name = [System.String]'ButtonGeneralApps'
+$ButtonGeneralApps.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralApps.TabIndex = [System.Int32]7
+$ButtonGeneralApps.Text = [System.String]'Apps'
+$ButtonGeneralApps.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralApps.UseCompatibleTextRendering = $true
+$ButtonGeneralApps.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralGPUpdate
+#
+$ButtonGeneralGPUpdate.Image = ([System.Drawing.Image]$resources.'ButtonGeneralGPUpdate.Image')
+$ButtonGeneralGPUpdate.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralGPUpdate.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]582,[System.Int32]3))
+$ButtonGeneralGPUpdate.Name = [System.String]'ButtonGeneralGPUpdate'
+$ButtonGeneralGPUpdate.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralGPUpdate.TabIndex = [System.Int32]6
+$ButtonGeneralGPUpdate.Text = [System.String]'GPUpdate'
+$ButtonGeneralGPUpdate.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralGPUpdate.UseCompatibleTextRendering = $true
+$ButtonGeneralGPUpdate.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralC
+#
+$ButtonGeneralC.Image = ([System.Drawing.Image]$resources.'ButtonGeneralC.Image')
+$ButtonGeneralC.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralC.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]486,[System.Int32]3))
+$ButtonGeneralC.Name = [System.String]'ButtonGeneralC'
+$ButtonGeneralC.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralC.TabIndex = [System.Int32]5
+$ButtonGeneralC.Text = [System.String]'C$'
+$ButtonGeneralC.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralC.UseCompatibleTextRendering = $true
+$ButtonGeneralC.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralIPConfig
+#
+$ButtonGeneralIPConfig.Image = ([System.Drawing.Image]$resources.'ButtonGeneralIPConfig.Image')
+$ButtonGeneralIPConfig.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralIPConfig.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]390,[System.Int32]3))
+$ButtonGeneralIPConfig.Name = [System.String]'ButtonGeneralIPConfig'
+$ButtonGeneralIPConfig.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralIPConfig.TabIndex = [System.Int32]4
+$ButtonGeneralIPConfig.Text = [System.String]'IP Config'
+$ButtonGeneralIPConfig.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralIPConfig.UseCompatibleTextRendering = $true
+$ButtonGeneralIPConfig.UseVisualStyleBackColor = $true
+#
+#ButonGeneralRemoteAssistance
+#
+$ButonGeneralRemoteAssistance.Image = ([System.Drawing.Image]$resources.'ButonGeneralRemoteAssistance.Image')
+$ButonGeneralRemoteAssistance.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButonGeneralRemoteAssistance.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]294,[System.Int32]3))
+$ButonGeneralRemoteAssistance.Name = [System.String]'ButonGeneralRemoteAssistance'
+$ButonGeneralRemoteAssistance.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButonGeneralRemoteAssistance.TabIndex = [System.Int32]3
+$ButonGeneralRemoteAssistance.Text = [System.String]'Remote Assistance'
+$ButonGeneralRemoteAssistance.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButonGeneralRemoteAssistance.UseCompatibleTextRendering = $true
+$ButonGeneralRemoteAssistance.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralPowerShell
+#
+$ButtonGeneralPowerShell.Image = ([System.Drawing.Image]$resources.'ButtonGeneralPowerShell.Image')
+$ButtonGeneralPowerShell.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralPowerShell.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]198,[System.Int32]3))
+$ButtonGeneralPowerShell.Name = [System.String]'ButtonGeneralPowerShell'
+$ButtonGeneralPowerShell.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralPowerShell.TabIndex = [System.Int32]2
+$ButtonGeneralPowerShell.Text = [System.String]'PowerShell Remote'
+$ButtonGeneralPowerShell.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralPowerShell.UseCompatibleTextRendering = $true
+$ButtonGeneralPowerShell.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralRDP
+#
+$ButtonGeneralRDP.Image = ([System.Drawing.Image]$resources.'ButtonGeneralRDP.Image')
+$ButtonGeneralRDP.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralRDP.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]102,[System.Int32]3))
+$ButtonGeneralRDP.Name = [System.String]'ButtonGeneralRDP'
+$ButtonGeneralRDP.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralRDP.TabIndex = [System.Int32]1
+$ButtonGeneralRDP.Text = [System.String]'Remote Desktop'
+$ButtonGeneralRDP.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralRDP.UseCompatibleTextRendering = $true
+$ButtonGeneralRDP.UseVisualStyleBackColor = $true
+#
+#ButtonGeneralPing
+#
+$ButtonGeneralPing.Image = ([System.Drawing.Image]$resources.'ButtonGeneralPing.Image')
+$ButtonGeneralPing.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
+$ButtonGeneralPing.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]6,[System.Int32]3))
+$ButtonGeneralPing.Name = [System.String]'ButtonGeneralPing'
+$ButtonGeneralPing.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
+$ButtonGeneralPing.TabIndex = [System.Int32]0
+$ButtonGeneralPing.Text = [System.String]'Ping'
+$ButtonGeneralPing.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
+$ButtonGeneralPing.UseCompatibleTextRendering = $true
+$ButtonGeneralPing.UseVisualStyleBackColor = $true
 #
 #TabPageComputerandOperatingSystem
 #
@@ -798,167 +959,6 @@ $TabPageExternalTools.TabIndex = [System.Int32]8
 $TabPageExternalTools.Text = [System.String]'ExternalTools'
 $TabPageExternalTools.UseVisualStyleBackColor = $true
 #
-#PanelGeneral
-#
-$PanelGeneral.Controls.Add($ButtonGeneralShutdown)
-$PanelGeneral.Controls.Add($ButtonGeneralRestart)
-$PanelGeneral.Controls.Add($ButtonGeneralSendCommand)
-$PanelGeneral.Controls.Add($ButtonGeneralApps)
-$PanelGeneral.Controls.Add($ButtonGeneralGPUpdate)
-$PanelGeneral.Controls.Add($ButtonGeneralC)
-$PanelGeneral.Controls.Add($ButtonGeneralIPConfig)
-$PanelGeneral.Controls.Add($ButonGeneralRemoteAssistance)
-$PanelGeneral.Controls.Add($ButtonGeneralPowerShell)
-$PanelGeneral.Controls.Add($ButtonGeneralRDP)
-$PanelGeneral.Controls.Add($ButtonGeneralPing)
-$PanelGeneral.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]0,[System.Int32]3))
-$PanelGeneral.Name = [System.String]'PanelGeneral'
-$PanelGeneral.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]1068,[System.Int32]568))
-$PanelGeneral.TabIndex = [System.Int32]0
-#
-#ButtonGeneralPing
-#
-$ButtonGeneralPing.Image = ([System.Drawing.Image]$resources.'ButtonGeneralPing.Image')
-$ButtonGeneralPing.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralPing.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]6,[System.Int32]3))
-$ButtonGeneralPing.Name = [System.String]'ButtonGeneralPing'
-$ButtonGeneralPing.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralPing.TabIndex = [System.Int32]0
-$ButtonGeneralPing.Text = [System.String]'Ping'
-$ButtonGeneralPing.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralPing.UseCompatibleTextRendering = $true
-$ButtonGeneralPing.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralRDP
-#
-$ButtonGeneralRDP.Image = ([System.Drawing.Image]$resources.'ButtonGeneralRDP.Image')
-$ButtonGeneralRDP.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralRDP.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]102,[System.Int32]3))
-$ButtonGeneralRDP.Name = [System.String]'ButtonGeneralRDP'
-$ButtonGeneralRDP.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralRDP.TabIndex = [System.Int32]1
-$ButtonGeneralRDP.Text = [System.String]'Remote Desktop'
-$ButtonGeneralRDP.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralRDP.UseCompatibleTextRendering = $true
-$ButtonGeneralRDP.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralPowerShell
-#
-$ButtonGeneralPowerShell.Image = ([System.Drawing.Image]$resources.'ButtonGeneralPowerShell.Image')
-$ButtonGeneralPowerShell.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralPowerShell.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]198,[System.Int32]3))
-$ButtonGeneralPowerShell.Name = [System.String]'ButtonGeneralPowerShell'
-$ButtonGeneralPowerShell.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralPowerShell.TabIndex = [System.Int32]2
-$ButtonGeneralPowerShell.Text = [System.String]'PowerShell Remote'
-$ButtonGeneralPowerShell.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralPowerShell.UseCompatibleTextRendering = $true
-$ButtonGeneralPowerShell.UseVisualStyleBackColor = $true
-#
-#ButonGeneralRemoteAssistance
-#
-$ButonGeneralRemoteAssistance.Image = ([System.Drawing.Image]$resources.'ButonGeneralRemoteAssistance.Image')
-$ButonGeneralRemoteAssistance.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButonGeneralRemoteAssistance.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]294,[System.Int32]3))
-$ButonGeneralRemoteAssistance.Name = [System.String]'ButonGeneralRemoteAssistance'
-$ButonGeneralRemoteAssistance.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButonGeneralRemoteAssistance.TabIndex = [System.Int32]3
-$ButonGeneralRemoteAssistance.Text = [System.String]'Remote Assistance'
-$ButonGeneralRemoteAssistance.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButonGeneralRemoteAssistance.UseCompatibleTextRendering = $true
-$ButonGeneralRemoteAssistance.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralIPConfig
-#
-$ButtonGeneralIPConfig.Image = ([System.Drawing.Image]$resources.'ButtonGeneralIPConfig.Image')
-$ButtonGeneralIPConfig.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralIPConfig.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]390,[System.Int32]3))
-$ButtonGeneralIPConfig.Name = [System.String]'ButtonGeneralIPConfig'
-$ButtonGeneralIPConfig.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralIPConfig.TabIndex = [System.Int32]4
-$ButtonGeneralIPConfig.Text = [System.String]'IP Config'
-$ButtonGeneralIPConfig.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralIPConfig.UseCompatibleTextRendering = $true
-$ButtonGeneralIPConfig.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralC
-#
-$ButtonGeneralC.Image = ([System.Drawing.Image]$resources.'ButtonGeneralC.Image')
-$ButtonGeneralC.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralC.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]486,[System.Int32]3))
-$ButtonGeneralC.Name = [System.String]'ButtonGeneralC'
-$ButtonGeneralC.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralC.TabIndex = [System.Int32]5
-$ButtonGeneralC.Text = [System.String]'C$'
-$ButtonGeneralC.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralC.UseCompatibleTextRendering = $true
-$ButtonGeneralC.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralGPUpdate
-#
-$ButtonGeneralGPUpdate.Image = ([System.Drawing.Image]$resources.'ButtonGeneralGPUpdate.Image')
-$ButtonGeneralGPUpdate.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralGPUpdate.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]582,[System.Int32]3))
-$ButtonGeneralGPUpdate.Name = [System.String]'ButtonGeneralGPUpdate'
-$ButtonGeneralGPUpdate.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralGPUpdate.TabIndex = [System.Int32]6
-$ButtonGeneralGPUpdate.Text = [System.String]'GPUpdate'
-$ButtonGeneralGPUpdate.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralGPUpdate.UseCompatibleTextRendering = $true
-$ButtonGeneralGPUpdate.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralApps
-#
-$ButtonGeneralApps.Image = ([System.Drawing.Image]$resources.'ButtonGeneralApps.Image')
-$ButtonGeneralApps.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralApps.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]678,[System.Int32]3))
-$ButtonGeneralApps.Name = [System.String]'ButtonGeneralApps'
-$ButtonGeneralApps.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralApps.TabIndex = [System.Int32]7
-$ButtonGeneralApps.Text = [System.String]'Apps'
-$ButtonGeneralApps.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralApps.UseCompatibleTextRendering = $true
-$ButtonGeneralApps.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralSendCommand
-#
-$ButtonGeneralSendCommand.Image = ([System.Drawing.Image]$resources.'ButtonGeneralSendCommand.Image')
-$ButtonGeneralSendCommand.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralSendCommand.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]774,[System.Int32]3))
-$ButtonGeneralSendCommand.Name = [System.String]'ButtonGeneralSendCommand'
-$ButtonGeneralSendCommand.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralSendCommand.TabIndex = [System.Int32]8
-$ButtonGeneralSendCommand.Text = [System.String]'Send Command'
-$ButtonGeneralSendCommand.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralSendCommand.UseCompatibleTextRendering = $true
-$ButtonGeneralSendCommand.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralRestart
-#
-$ButtonGeneralRestart.Image = ([System.Drawing.Image]$resources.'ButtonGeneralRestart.Image')
-$ButtonGeneralRestart.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralRestart.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]870,[System.Int32]3))
-$ButtonGeneralRestart.Name = [System.String]'ButtonGeneralRestart'
-$ButtonGeneralRestart.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralRestart.TabIndex = [System.Int32]9
-$ButtonGeneralRestart.Text = [System.String]'Restart'
-$ButtonGeneralRestart.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralRestart.UseCompatibleTextRendering = $true
-$ButtonGeneralRestart.UseVisualStyleBackColor = $true
-#
-#ButtonGeneralShutdown
-#
-$ButtonGeneralShutdown.Image = ([System.Drawing.Image]$resources.'ButtonGeneralShutdown.Image')
-$ButtonGeneralShutdown.ImageAlign = [System.Drawing.ContentAlignment]::TopCenter
-$ButtonGeneralShutdown.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]968,[System.Int32]3))
-$ButtonGeneralShutdown.Name = [System.String]'ButtonGeneralShutdown'
-$ButtonGeneralShutdown.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]90,[System.Int32]90))
-$ButtonGeneralShutdown.TabIndex = [System.Int32]10
-$ButtonGeneralShutdown.Text = [System.String]'Shutdown'
-$ButtonGeneralShutdown.TextAlign = [System.Drawing.ContentAlignment]::BottomCenter
-$ButtonGeneralShutdown.UseCompatibleTextRendering = $true
-$ButtonGeneralShutdown.UseVisualStyleBackColor = $true
-#
 #FormLWA
 #
 $FormLWA.BackColor = [System.Drawing.SystemColors]::Control
@@ -1032,16 +1032,16 @@ Add-Member -InputObject $FormLWA -Name ExitToolStripMenuItem -Value $ExitToolStr
 Add-Member -InputObject $FormLWA -Name Panel1 -Value $Panel1 -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name LabelUptime -Value $LabelUptime -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name LabelOS -Value $LabelOS -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name Label8 -Value $Label8 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelPSRemoting -Value $LabelPSRemoting -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name LabelShure -Value $LabelShure -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name LabelPing -Value $LabelPing -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name LabelPermission -Value $LabelPermission -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name Label6 -Value $Label6 -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name Label5 -Value $Label5 -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name Label4 -Value $Label4 -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name Label3 -Value $Label3 -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name Label2 -Value $Label2 -MemberType NoteProperty
-Add-Member -InputObject $FormLWA -Name Label1 -Value $Label1 -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelDefinitionUptime -Value $LabelDefinitionUptime -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelDefinitionOS -Value $LabelDefinitionOS -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelDefinitionPSRemoting -Value $LabelDefinitionPSRemoting -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelDefinitionRDP -Value $LabelDefinitionRDP -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelDefinitionPermission -Value $LabelDefinitionPermission -MemberType NoteProperty
+Add-Member -InputObject $FormLWA -Name LabelDefinitionPing -Value $LabelDefinitionPing -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name ButtonCheck -Value $ButtonCheck -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name ComboBoxComputerName -Value $ComboBoxComputerName -MemberType NoteProperty
 Add-Member -InputObject $FormLWA -Name LabelComputerName -Value $LabelComputerName -MemberType NoteProperty
