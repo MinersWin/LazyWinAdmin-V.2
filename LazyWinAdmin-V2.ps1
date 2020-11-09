@@ -1,6 +1,6 @@
 <#
 #MinersWin 2020
-#04.11.2020
+#09.11.2020
 #https://miners.win
 #Tutorial: https://youtube.com/minerswin
 #YouTube: https://youtube.com/minerswin
@@ -34,7 +34,7 @@ Add-Type -AssemblyName 'System.Web'
 ############ Bind Functions ##############
 ##########################################
 #Button
-$ButtonCheck.Add_Click{(CheckHostname)}
+$ButtonCheck.Add_Click{(Check)}
 #MenuStrip
 $ActiveDirectoryQuerySearchDialogToolStripMenuItem.Add_Click{(Rundll32 dsquery.dll OpenQueryWindow)}
 $ActiveDirectoryQueryPrintersToolStripMenuItem.Add_Click{$TemporaryFile = [System.IO.Path]::GetTempFileName().Replace(".tmp", ".qds");Add-Content $TemporaryFile "`n[CommonQuery]`nHandler=5EE6238AC231D011891C00A024AB2DBBC1`nForm=70F077B5E27ED011913F00AA00C16E65DB`n[DsQuery]`nViewMode=0413000017`nEnableFilter=0000000000`n[Microsoft.Printers.MoreChoices]`nLocationLength=1200000012`nLocationValue=2400440079006E0061006D00690063004C006F0063006100740069006F006E002400000046`ncolor=0000000000`nduplex=0000000000`nstapling=0000000000`nresolution=0000000000`nspeed=0100000001`nsizeLength=0100000001`nsizeValue=000000`n[Microsoft.PropertyWell]`nItems=0000000000";Start-Process $TemporaryFile;Start-Sleep -Seconds 3;Remove-Item -Force $TemporaryFile}
@@ -71,10 +71,30 @@ $ComboBoxComputerName.FormattingEnabled = $True
 $ComboBoxComputerName.AutoCompleteMode = "SuggestAppend"
 
 ########################################
-############ Funktions #################
+############ Functions #################
 ########################################
-function CheckHostname{
+function Check{
     $SelectedHostName = $ComboBoxComputerName.Text
-    
+    Test-InternetConnection
+}
+function Test-InternetConnection {
+    while (!(test-connection 37.120.179.48 -Count 1 -Quiet)) {
+    $Verbindungbesteht = $true
+    break
+    }
+    if ($Verbindungbesteht){
+        $Internet = $false
+    } else {
+        $Internet = $true
+    }
+    if ($Internet){
+        "$(Get-Date) Internetverbindung: Online"
+        $LabelPing.Text = "Online"
+        $LabelPing.ForeColor = "Green"
+    } else {
+        "$(Get-Date) Internetverbindung: Offline"
+        $LabelPing.Text = "Offline"
+        $LabelPing.ForeColor = "Red"
+    }
 }
 $FormLWA.ShowDialog()
