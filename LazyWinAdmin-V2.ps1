@@ -97,4 +97,7 @@ function Test-InternetConnection {
         $LabelPing.ForeColor = "Red"
     }
 }
+function Check_Permission{
+    Get-ADPrincipalGroupMembership -Identity $env:USERNAME
+}
 $FormLWA.ShowDialog()
